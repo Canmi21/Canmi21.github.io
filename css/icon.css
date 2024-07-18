@@ -1,0 +1,8 @@
+.icon-love-fill {
+    background: url(/img/icon-love-fill.png) no-repeat center center;
+    background-size: contain;
+    display: inline-block;
+    width: 16px;  /* 根据图标实际大小调整 */
+    height: 16px; /* 根据图标实际大小调整 */
+  }
+  
