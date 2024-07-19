@@ -8,6 +8,6 @@ document.addEventListener('visibilitychange', function() {
         document.title = '(*´∇｀*)被你发现啦~';
         titleTime = setTimeout(function() {
             document.title = OriginTitile;
-        }, 2000);
+        }, 2100);
     }
 });
