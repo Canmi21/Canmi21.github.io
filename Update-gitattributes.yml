@@ -1,0 +1,49 @@
+name: Update .gitattributes
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # 每天 UTC 时间20:00，即北京时间4:00
+  workflow_dispatch:  # 添加这一行以允许手动触发
+
+jobs:
+  update-gitattributes:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # 更新到 v3 版本
+
+    - name: Set up Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Delete .gitattributes if exists
+      run: |
+        rm -f .gitattributes
+
+    - name: Create .gitattributes
+      run: |
+        echo "*.html linguist-detectable=false" > .gitattributes
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if git diff --quiet; then
+          echo "changes=false" >> $GITHUB_ENV
+        else
+          echo "changes=true" >> $GITHUB_ENV
+        fi
+
+    - name: Commit and push changes
+      if: env.changes == 'true'
+      run: |
+        git add .gitattributes
+        git commit -m "Update .gitattributes"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: No changes detected
+      if: env.changes == 'false'
+      run: echo "No changes detected, skipping commit."
