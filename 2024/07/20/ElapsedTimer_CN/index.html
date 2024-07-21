@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Canmi">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于JS的简易计时器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elapsed Timer">
+<meta property="og:url" content="https://canmi.xyz/2024/07/20/ElapsedTimer_CN/index.html">
+<meta property="og:site_name" content="CanmiのBlog">
+<meta property="og:description" content="基于JS的简易计时器">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-20T12:34:21.000Z">
+<meta property="article:modified_time" content="2024-07-21T06:14:28.682Z">
+<meta property="article:author" content="Canmi">
+<meta property="article:tag" content="zh_CN">
+<meta property="article:tag" content="Code">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="OpenSource">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Elapsed Timer - CanmiのBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"canmi.xyz","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":21,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <link rel="stylesheet" href="/css/icon.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <script src="/js/title.js"></script>
+  <link rel="stylesheet" href="/css/dark.css">
+  <link rel="stylesheet" href="/css/light.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Canmi&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-bookmark-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="icon-love-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default-sky.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Elapsed Timer"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-20 20:34" pubdate>
+          July 20, 2024 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Elapsed Timer</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="随手写的通过JS实现的计时器"><a href="#随手写的通过JS实现的计时器" class="headerlink" title="随手写的通过JS实现的计时器"></a>随手写的通过JS实现的计时器</h1><p id="time-elapsed"></p>
+
+<script>
+    // 计算经过的时间函数：String -> String
+    const calculateElapsedTime = startDate => {
+        const start = new Date(startDate);
+        const now = new Date();
+        const diff = now - start; // 时间差，单位为毫秒
+
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        return `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    // 更新元素内容的函数：HTMLElement -> String -> ()
+    const updateElement = obj => str => obj.innerHTML = str;
+
+    // 页面加载后执行
+    document.addEventListener("DOMContentLoaded", () => {
+        const startDate = "2024-07-20T20:34:21";
+        const timeElapsedElement = document.getElementById("time-elapsed");
+
+        // 更新元素内容的函数
+        const updateTimeElapsed = updateElement(timeElapsedElement);
+
+        // 初始化调用，显示初始值
+        updateTimeElapsed(`实现了=> 时间已经过去了 ${calculateElapsedTime(startDate)}`);
+
+        // 1s更新一次显示的时间
+        setInterval(() => {
+            updateTimeElapsed(`实现了=> 时间已经过去了 ${calculateElapsedTime(startDate)}`);
+        }, 1000);
+    });
+</script>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 计算经过的时间函数：String -&gt; String</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">calculateElapsedTime</span> = startDate =&gt; &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;years&#125;</span>y <span class="hljs-subst">$&#123;days&#125;</span>d <span class="hljs-subst">$&#123;hours&#125;</span>h <span class="hljs-subst">$&#123;minutes&#125;</span>m <span class="hljs-subst">$&#123;seconds&#125;</span>s`</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 更新元素内容的函数：HTMLElement -&gt; String -&gt; ()</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">updateElement</span> = obj =&gt; <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> obj.<span class="hljs-property">innerHTML</span> = str;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 页面加载后执行</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> startDate = <span class="hljs-string">&quot;2024-07-20T20:34:21&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 更新元素内容的函数</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> updateTimeElapsed = <span class="hljs-title function_">updateElement</span>(timeElapsedElement);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 初始化调用，显示初始值</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`时间已经过去了 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 1s更新一次显示的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`时间已经过去了 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;, <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="计算时间差"><a href="#计算时间差" class="headerlink" title="计算时间差"></a>计算时间差</h3><p>首先这段JS的本质是一个计算时间差, “calculateElapsedTime” 函数接收一个日期字符串作为参数，这个日期表示计时的开始时间。它首先将这个字符串转换成 Date 对象。然后，通过当前时间与开始时间的差值（以毫秒为单位），计算出经过的年数、天数、小时数、分钟数和秒数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 计算经过的时间函数：String -&gt; String</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">calculateElapsedTime</span> = startDate =&gt; &#123;<br>    <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);<br>    <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>    <span class="hljs-keyword">const</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span><br><br>    <span class="hljs-keyword">const</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));<br>    <span class="hljs-keyword">const</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));<br>    <span class="hljs-keyword">const</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));<br>    <span class="hljs-keyword">const</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));<br>    <span class="hljs-keyword">const</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;years&#125;</span>y <span class="hljs-subst">$&#123;days&#125;</span>d <span class="hljs-subst">$&#123;hours&#125;</span>h <span class="hljs-subst">$&#123;minutes&#125;</span>m <span class="hljs-subst">$&#123;seconds&#125;</span>s`</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="更新此元素"><a href="#更新此元素" class="headerlink" title="更新此元素"></a>更新此元素</h3><p>更新网页元素内容的实现通过了 updateElement 函数接收一个 HTMLElement 对象，并返回另一个函数，这个返回的函数可以接受一个字符串并将其设置为传入的元素的 innerHTML。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 更新元素内容的函数：HTMLElement -&gt; String -&gt; ()</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">updateElement</span> = obj =&gt; <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> obj.<span class="hljs-property">innerHTML</span> = str;<br></code></pre></td></tr></table></figure>
+<h3 id="刷新该元素"><a href="#刷新该元素" class="headerlink" title="刷新该元素"></a>刷新该元素</h3><p>最后在页面加载后的执行 DOMContentLoaded 事件中（即所有DOM元素都已加载完成后），代码设置了开始日期 startDate，并获取了页面中的元素。然后，使用 updateElement 函数创建了 updateTimeElapsed 函数，该函数可以更新时间显示。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 页面加载后执行</span><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> startDate = <span class="hljs-string">&quot;2024-07-20T20:34:21&quot;</span>;<br>    <span class="hljs-keyword">const</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);<br><br>    <span class="hljs-comment">// 更新元素内容的函数</span><br>    <span class="hljs-keyword">const</span> updateTimeElapsed = <span class="hljs-title function_">updateElement</span>(timeElapsedElement);<br><br>    <span class="hljs-comment">// 初始化调用，显示初始值</span><br>    <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`时间已经过去了 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);<br><br>    <span class="hljs-comment">// 1s更新一次显示的时间</span><br>    <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`时间已经过去了 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);<br>    &#125;, <span class="hljs-number">1000</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="修正经历"><a href="#修正经历" class="headerlink" title="修正经历"></a>修正经历</h2><h3 id="初版思路"><a href="#初版思路" class="headerlink" title="初版思路"></a>初版思路</h3><p>可以看到这里其实缺少了对于年份的统计，理论上这种方法也适用于时间轴不长的天数统计。但是在 days 的值中如果超过 356(366) 会看起来很奇怪，特别是用于统计网站的运行时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">calculateElapsedTime</span>(<span class="hljs-params">startDate</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> days + <span class="hljs-string">&quot;d &quot;</span> + hours + <span class="hljs-string">&quot;h &quot;</span> + minutes + <span class="hljs-string">&quot;m &quot;</span> + seconds + <span class="hljs-string">&quot;s&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> startDate = <span class="hljs-string">&quot;2024-07-13T00:00:00&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">        timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + <span class="hljs-title function_">calculateElapsedTime</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + <span class="hljs-title function_">calculateElapsedTime</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;, <span class="hljs-number">1000</span>); <span class="hljs-comment">// 每秒更新一次</span></span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="添加年份"><a href="#添加年份" class="headerlink" title="添加年份"></a>添加年份</h3><p>到这里其实代码已经可以跑了，但是似乎某人觉得我写点很烂(Xd)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">calculateElapsedTime</span>(<span class="hljs-params">startDate</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> years + <span class="hljs-string">&quot;y &quot;</span> + days + <span class="hljs-string">&quot;d &quot;</span> + hours + <span class="hljs-string">&quot;h &quot;</span> + minutes + <span class="hljs-string">&quot;m &quot;</span> + seconds + <span class="hljs-string">&quot;s&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> startDate = <span class="hljs-string">&quot;2024-07-03T15:03:00&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">        timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + <span class="hljs-title function_">calculateElapsedTime</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + <span class="hljs-title function_">calculateElapsedTime</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;, <span class="hljs-number">1000</span>); <span class="hljs-comment">// 每秒更新一次</span></span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="组合函数"><a href="#组合函数" class="headerlink" title="组合函数"></a>组合函数</h3><p>所以这里改用定义一个组合函数(x)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 定义组合函数</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">compose</span> = (<span class="hljs-params">f, g</span>) =&gt; <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title function_">f</span>(<span class="hljs-title function_">g</span>(x));</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 计算经过的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">calculateElapsedTime</span>(<span class="hljs-params">startDate</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> years + <span class="hljs-string">&quot;y &quot;</span> + days + <span class="hljs-string">&quot;d &quot;</span> + hours + <span class="hljs-string">&quot;h &quot;</span> + minutes + <span class="hljs-string">&quot;m &quot;</span> + seconds + <span class="hljs-string">&quot;s&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 页面加载后执行</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> startDate = <span class="hljs-string">&quot;2024-07-03T15:03:00&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 组合函数，用于更新页面运行时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> updateElapsedTime = <span class="hljs-title function_">compose</span>(<span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + <span class="hljs-title function_">calculateElapsedTime</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;, <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>());</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 初始化调用，显示初始值</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-title function_">updateElapsedTime</span>();</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 每秒更新一次显示的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(updateElapsedTime, <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="规范函数"><a href="#规范函数" class="headerlink" title="规范函数"></a>规范函数</h3><p>u1s1，其实我感觉上面也算某种意义上的”组合函数” 但是为了满足某人的XP，以下使用 f &#x3D;&gt; g &#x3D;&gt; args &#x3D;&gt; f(g(args))</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 定义组合函数</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">compose</span> = f =&gt; <span class="hljs-function"><span class="hljs-params">g</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">args</span> =&gt;</span> <span class="hljs-title function_">f</span>(<span class="hljs-title function_">g</span>(args));</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 计算经过的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">calculateElapsedTime</span>(<span class="hljs-params">startDate</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> years + <span class="hljs-string">&quot;y &quot;</span> + days + <span class="hljs-string">&quot;d &quot;</span> + hours + <span class="hljs-string">&quot;h &quot;</span> + minutes + <span class="hljs-string">&quot;m &quot;</span> + seconds + <span class="hljs-string">&quot;s&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 页面加载后执行</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> startDate = <span class="hljs-string">&quot;2024-07-03T15:03:00&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">var</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 组合函数，用于更新页面运行时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> updateElapsedTime = <span class="hljs-title function_">compose</span>(<span class="hljs-function"><span class="hljs-params">timeElapsed</span> =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            timeElapsedElement.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&quot;网页已运行 &quot;</span> + timeElapsed;</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;)(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">calculateElapsedTime</span>(startDate));</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 初始化调用，显示初始值</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-title function_">updateElapsedTime</span>();</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 每秒更新一次显示的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(updateElapsedTime, <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="规范风格"><a href="#规范风格" class="headerlink" title="规范风格"></a>规范风格</h3><p>但是似乎代码的可读性较差，所以可以改成这样：<br>使用 calcuateDate 函数规范为 string -&gt; string 然后更新 element.innerHTML<br>最后 setInterval(() -&gt; (), 1000) 来完成更新。   </p>
+<p>那么顺应的写法应该是：<br>setInterval(() &#x3D;&gt; updateElement(calcuateDate))</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;p id=<span class="hljs-string">&quot;time-elapsed&quot;</span>&gt;&lt;/p&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 计算经过的时间函数：String -&gt; String</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">calculateElapsedTime</span> = startDate =&gt; &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> diff = now - start; <span class="hljs-comment">// 时间差，单位为毫秒</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;years&#125;</span>y <span class="hljs-subst">$&#123;days&#125;</span>d <span class="hljs-subst">$&#123;hours&#125;</span>h <span class="hljs-subst">$&#123;minutes&#125;</span>m <span class="hljs-subst">$&#123;seconds&#125;</span>s`</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 更新元素内容的函数：HTMLElement -&gt; String -&gt; ()</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> <span class="hljs-title function_">updateElement</span> = obj =&gt; <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> obj.<span class="hljs-property">innerHTML</span> = str;</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 页面加载后执行</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> startDate = <span class="hljs-string">&quot;2024-07-03T15:03:00&quot;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> timeElapsedElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time-elapsed&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 更新元素内容的函数</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">const</span> updateTimeElapsed = <span class="hljs-title function_">updateElement</span>(timeElapsedElement);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 初始化调用，显示初始值</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`网页已运行 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">// 每秒更新一次显示的时间</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-title function_">updateTimeElapsed</span>(<span class="hljs-string">`网页已运行 <span class="hljs-subst">$&#123;calculateElapsedTime(startDate)&#125;</span>`</span>);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;, <span class="hljs-number">1000</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>updateElement HTMLElement -&gt; string -&gt; ()<br>updateElement &#x3D; obj &#x3D;&gt; str -&gt; obj.innerHTML &#x3D; str</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">calculateElapsedTime</span> = startDate =&gt; &#123;<br>    <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(startDate);<br>    <span class="hljs-keyword">const</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>    <span class="hljs-keyword">const</span> diff = now - start;<br><br>    <span class="hljs-keyword">const</span> years = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>));<br>    <span class="hljs-keyword">const</span> days = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">365</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>));<br>    <span class="hljs-keyword">const</span> hours = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>));<br>    <span class="hljs-keyword">const</span> minutes = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>));<br>    <span class="hljs-keyword">const</span> seconds = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((diff % (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) / <span class="hljs-number">1000</span>);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;years&#125;</span>y <span class="hljs-subst">$&#123;days&#125;</span>d <span class="hljs-subst">$&#123;hours&#125;</span>h <span class="hljs-subst">$&#123;minutes&#125;</span>m <span class="hljs-subst">$&#123;seconds&#125;</span>s`</span>;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Code/" class="category-chain-item">Code</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/zh-CN/" class="print-no-link">#zh_CN</a>
+      
+        <a href="/tags/Code/" class="print-no-link">#Code</a>
+      
+        <a href="/tags/Github/" class="print-no-link">#Github</a>
+      
+        <a href="/tags/OpenSource/" class="print-no-link">#OpenSource</a>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Elapsed Timer</div>
+      <div>https://canmi.xyz/2024/07/20/ElapsedTimer_CN/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Canmi</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 20, 2024</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/07/21/README_CN/" title="README">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">README</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/07/20/TitlePlay%20HideSeek_CN/" title="TitlePlay HideSeek">
+                        <span class="hidden-mobile">TitlePlay HideSeek</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <del style="color: gray;"><a href="https://github.com/XiangYyang" target="_blank" rel="nofollow noopener"><span>向阳去哪里了</span></a></del> <a href="https://github.com/Canmi21/Canmi21.github.io" target="_blank" rel="nofollow noopener"><span>CanmiのPages</span></a> <span>powered by </span> <a href="https://github.com" target="_blank" rel="nofollow noopener">GitHub</a> <span> & </span> <a href="https://www.cloudflare.com" target="_blank" rel="nofollow noopener">Cloudflare,</a> <span>featuring </span> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <span><a href="https://www.wipo.int/copyright/en/" target="_blank" rel="nofollow noopener">Copyright © 2020-2024</a> <a href="https://github.com/Canmi21/Canmi21.github.io" target="_blank" rel="nofollow noopener">Canmi21</a></span> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

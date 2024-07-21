@@ -1,0 +1,52 @@
+/* Custom styles for light mode code blocks */
+@media (prefers-color-scheme: light) {
+    pre, code {
+        background-color: #f5f5f5; /* Light grey background color */
+        color: #4a4a4a; /* Dark grey font color for better readability */
+    }
+
+    /* Keyword styles */
+    .hljs-keyword, .hljs-selector-tag, .hljs-title, .hljs-section {
+        color: #005cc5 !important; /* Dark blue for control elements and sections */
+    }
+
+    /* String and literal styles */
+    .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition {
+        color: #22863a !important; /* Green for strings and additions */
+    }
+
+    /* Number styles */
+    .hljs-number, .hljs-link {
+        color: #953800 !important; /* Brownish color for numbers and links */
+    }
+
+    /* Comment and meta styles */
+    .hljs-comment, .hljs-quote, .hljs-meta {
+        color: #6a737d !important; /* Dark gray for comments and meta information */
+    }
+
+    /* Variable and template variable */
+    .hljs-variable, .hljs-template-variable, .hljs-attr, .hljs-attribute, .hljs-tag {
+        color: #e36209 !important; /* Orange for variables, attributes, and tags */
+    }
+
+    /* Built-in and preprocessor */
+    .hljs-built_in, .hljs-builtin-name, .hljs-preprocessor {
+        color: #005cc5 !important; /* Dark blue for built-in functions and preprocessors */
+    }
+
+    /* Deletion */
+    .hljs-deletion {
+        color: #d73a49 !important; /* Red for deletions */
+    }
+
+    /* Emphasis */
+    .hljs-emphasis {
+        font-style: italic;
+    }
+
+    /* Strong */
+    .hljs-strong {
+        font-weight: bold;
+    }
+}
