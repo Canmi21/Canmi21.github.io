@@ -26,7 +26,7 @@
 <meta property="og:description" content="基于JS的动态标题">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-20T12:34:21.000Z">
-<meta property="article:modified_time" content="2024-07-21T06:37:02.276Z">
+<meta property="article:modified_time" content="2024-07-22T07:06:40.068Z">
 <meta property="article:author" content="Canmi">
 <meta property="article:tag" content="zh_CN">
 <meta property="article:tag" content="Code">
@@ -270,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          271 words
+          281 words
         
       </span>
     
@@ -326,8 +326,15 @@
                 <h1 id="基于JS实现的交互式标题"><a href="#基于JS实现的交互式标题" class="headerlink" title="基于JS实现的交互式标题"></a>基于JS实现的交互式标题</h1><p>至于实现的效果嘛，看顶上标签页不就知道了嘛</p>
 <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-title class_">OriginTitile</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span>;<br><span class="hljs-keyword">var</span> titleTime;<br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;visibilitychange&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">hidden</span>) &#123;<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">&#x27;(つェ⊂)我藏好了哦~&#x27;</span>;<br>        <span class="hljs-built_in">clearTimeout</span>(titleTime);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">&#x27;(*´∇｀*)被你发现啦~&#x27;</span>;<br>        titleTime = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>            <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-title class_">OriginTitile</span>;<br>        &#125;, <span class="hljs-number">2100</span>);<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 <h2 id="原理讲解"><a href="#原理讲解" class="headerlink" title="原理讲解"></a>原理讲解</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 存储原始标题</span><br><span class="hljs-keyword">var</span> <span class="hljs-title class_">OriginTitile</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span>;<br><br><span class="hljs-comment">// 声明一个变量来保存定时器</span><br><span class="hljs-keyword">var</span> titleTime;<br><br><span class="hljs-comment">// 添加一个事件监听器监听可见性变化</span><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;visibilitychange&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 检查文档是否隐藏</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">hidden</span>) &#123;<br>        <span class="hljs-comment">// 将标题改为隐藏信息</span><br>        <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">&#x27;(つェ⊂)我藏好了哦~&#x27;</span>;<br>        <span class="hljs-comment">// 清除任何已有的定时器</span><br>        <span class="hljs-built_in">clearTimeout</span>(titleTime);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 将标题改为发现信息</span><br>        <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">&#x27;(*´∇｀*)被你发现啦~&#x27;</span>;<br>        <span class="hljs-comment">// 设置定时器在2.1秒后将标题改回原始标题</span><br>        titleTime = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>            <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-title class_">OriginTitile</span>;<br>        &#125;, <span class="hljs-number">2100</span>);<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
-<p>怎么样，很简便吧 学废了就CV一下就好了 记得别忘了挂着这个JS(√)</p>
+<p>怎么样，很简便吧 学废了就CV一下就好了 </p>
+<div class="note note-info">
+            <p>记得别忘了挂着这个JS(√)</p>
+          </div> 
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script src=<span class="hljs-string">&quot;&lt;%- url_for(&#x27;/js/title.js&#x27;) %&gt;&quot;</span>&gt;&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>你可以此处继续浏览</p>
+<a class="btn" href="https://github.com/Canmi21/Canmi21.github.io/blob/main/js/title.js"  title="title" target="_blank">Github</a>
                 
               </div>
             
