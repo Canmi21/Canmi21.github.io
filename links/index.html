@@ -376,9 +376,41 @@
 
   <!-- Custom -->
   <div class="custom mx-auto">
-    <hr><p>这是一个友链页面，欢迎大家私聊添加自己的友链，留言的话需要以下内容：</p><ul><li>你的名称</li><li>你的网站链接</li><li>你的一段简介（可选）</li><li>你的头像文件或者链接（可选）</li></ul><script type="text/javascript" src="//rf.revolvermaps.com/0/0/0.js?i=58gcjaaopze&amp;d=3&amp;p=1&amp;b=0&amp;w=293&amp;g=2&amp;f=arial&amp;fs=12&amp;r=0&amp;c0=362b05&amp;c1=ffc000&amp;c2=9d8b63&amp;ic0=0&amp;ic1=0" async="async"></script>
+    <hr><p>这是一个友链页面，欢迎大家留言或者私聊添加自己的友链，留言的话需要以下内容：</p><ul><li>你的名称</li><li>你的网站链接</li><li>你的一段简介（可选）</li><li>你的头像文件或者链接（可选）</li></ul><script type="text/javascript" src="//rf.revolvermaps.com/0/0/0.js?i=58gcjaaopze&amp;d=3&amp;p=1&amp;b=0&amp;w=293&amp;g=2&amp;f=arial&amp;fs=12&amp;r=0&amp;c0=362b05&amp;c1=ffc000&amp;c2=9d8b63&amp;ic0=0&amp;ic1=0" async="async"></script>
   </div>
 
+
+
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://vercel.canmi.xyz","path":"window.location.pathname","meta":[],"requiredMeta":["nick","mail"],"lang":"en","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"admin":["Canmi21@gmail.com"],"adminLabel":"Owner"},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
 
 
 
