@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>WCH-Link R1&amp;E</title>
+    <link href="/2024/07/23/WCH-Link-R1&amp;E_zh_CN/"/>
+    <url>/2024/07/23/WCH-Link-R1&amp;E_zh_CN/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-warning">            <p>WCH-Link 是真废物，感觉不如 JLink V11 或者 ST-Link V3</p>          </div> <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>因为要调试某个 WCH 的垃圾 549F 还有 CH32V3 什么的，所以被迫做了个 Link-R1( ) 然后做完发现 R1 其实没啥用，关机是 WCH 自己的上位机就很垃圾。然后就换了个 LinkE 之后就被 ex 到了，WCH 家的芯片不知道在想什么 I2C 复用 SWD… … 不好评价<br><img src="/img/blog/WCH-Link-R1&E/WCH-Link-R1&E.jpg" alt="WCH-Link R1&amp;E"></p><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>以后反正感觉不会怎么玩 WCH 的片子了，除了便宜，一无是处( )</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Debugger</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>zh_CN</tag>
+      
+      <tag>Debugger</tag>
+      
+      <tag>Programmer</tag>
+      
+      <tag>WCH</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>BSOD Wallpaper</title>
     <link href="/2024/07/22/BSOD-Wallpaper_zh_CN/"/>
     <url>/2024/07/22/BSOD-Wallpaper_zh_CN/</url>
