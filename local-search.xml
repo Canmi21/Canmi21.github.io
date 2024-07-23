@@ -35,6 +35,37 @@
   
   
   <entry>
+    <title>STM32H723</title>
+    <link href="/2024/07/23/STM32H723_zh_CN/"/>
+    <url>/2024/07/23/STM32H723_zh_CN/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-info">            <p>正在思考要不要做一个内置 ST-Link V3 的开发板什么的( )</p>          </div> <h2 id="STM32H723VGH6"><a href="#STM32H723VGH6" class="headerlink" title="STM32H723VGH6"></a>STM32H723VGH6</h2><p>High-performance and DSP with DP-FPU, Arm Cortex-M7 MCU with 1 MByte Flash, 564 Kbytes RAM, 550 MHz CPU, L1 cache, external memory interface, subset of peripherals.<br><img src="/img/blog/STM32H723/STM32H723VGH6.png" alt="STM32H723VGH6"></p><h3 id="Package-TFBGA-100"><a href="#Package-TFBGA-100" class="headerlink" title="Package TFBGA-100"></a>Package TFBGA-100</h3><p><img src="/img/blog/STM32H723/STM32H723_F.jpg" alt="Front"><br><img src="/img/blog/STM32H723/STM32H723_B.jpg" alt="Bottom"></p><p><img src="/img/blog/STM32H723/STM32H723_N_F.jpg" alt="Front"><br><img src="/img/blog/STM32H723/STM32H723_N_B.jpg" alt="Bottom"><br><img src="/img/blog/STM32H723/STM32H723_N_45.jpg" alt="R45"></p><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>u1s1，感觉不如 H750 但是 H723 也有 550MHz 的主频 1MByte Flash + 564Kbytes RAM，感觉也不算弱吧。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Debugger</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>zh_CN</tag>
+      
+      <tag>ST</tag>
+      
+      <tag>STM32</tag>
+      
+      <tag>MCU</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>BSOD Wallpaper</title>
     <link href="/2024/07/22/BSOD-Wallpaper_zh_CN/"/>
     <url>/2024/07/22/BSOD-Wallpaper_zh_CN/</url>

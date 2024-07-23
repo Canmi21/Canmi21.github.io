@@ -18,27 +18,32 @@
   <meta name="author" content="Canmi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="感觉吃灰了(x)">
+    <meta name="description" content="突然感觉F723好小啊">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCH-Link R1&amp;E">
-<meta property="og:url" content="https://canmi.xyz/2024/07/23/WCH-Link-R1&E_zh_CN/index.html">
+<meta property="og:title" content="STM32H723">
+<meta property="og:url" content="https://canmi.xyz/2024/07/23/STM32H723_zh_CN/index.html">
 <meta property="og:site_name" content="CanmiのBlog">
-<meta property="og:description" content="感觉吃灰了(x)">
+<meta property="og:description" content="突然感觉F723好小啊">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://canmi.xyz/img/blog/WCH-Link-R1&E/WCH-Link-R1&E.jpg">
-<meta property="article:published_time" content="2024-07-23T09:22:48.000Z">
-<meta property="article:modified_time" content="2024-07-23T09:30:12.988Z">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723VGH6.png">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723_F.jpg">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723_B.jpg">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723_N_F.jpg">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723_N_B.jpg">
+<meta property="og:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723_N_45.jpg">
+<meta property="article:published_time" content="2024-07-23T09:18:47.000Z">
+<meta property="article:modified_time" content="2024-07-23T09:50:38.426Z">
 <meta property="article:author" content="Canmi">
 <meta property="article:tag" content="zh_CN">
-<meta property="article:tag" content="Debugger">
-<meta property="article:tag" content="Programmer">
-<meta property="article:tag" content="WCH">
+<meta property="article:tag" content="ST">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="MCU">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://canmi.xyz/img/blog/WCH-Link-R1&E/WCH-Link-R1&E.jpg">
+<meta name="twitter:image" content="https://canmi.xyz/img/blog/STM32H723/STM32H723VGH6.png">
   
   
   
-  <title>WCH-Link R1&amp;E - CanmiのBlog</title>
+  <title>STM32H723 - CanmiのBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -250,7 +255,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="WCH-Link R1&amp;E"></span>
+            <span id="subtitle" data-typed-text="STM32H723"></span>
           
         </div>
 
@@ -261,7 +266,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-23 17:22" pubdate>
+        <time datetime="2024-07-23 17:18" pubdate>
           July 23, 2024 pm
         </time>
       </span>
@@ -273,7 +278,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123 words
+          55 words
         
       </span>
     
@@ -284,7 +289,7 @@
         
         
         
-          2 mins
+          1 mins
         
       </span>
     
@@ -321,16 +326,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">WCH-Link R1&amp;E</h1>
+            <h1 id="seo-header">STM32H723</h1>
             
             
               <div class="markdown-body">
                 
-                <div class="note note-warning">
-            <p>WCH-Link 是真废物，感觉不如 JLink V11 或者 ST-Link V3</p>
+                <div class="note note-info">
+            <p>正在思考要不要做一个内置 ST-Link V3 的开发板什么的( )</p>
           </div> 
-<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>因为要调试某个 WCH 的垃圾 549F 还有 CH32V3 什么的，所以被迫做了个 Link-R1( ) 然后做完发现 R1 其实没啥用，关机是 WCH 自己的上位机就很垃圾。然后就换了个 LinkE 之后就被 ex 到了，WCH 家的芯片不知道在想什么 I2C 复用 SWD… … 不好评价<br><img src="/img/blog/WCH-Link-R1&E/WCH-Link-R1&E.jpg" srcset="/img/loading.gif" lazyload alt="WCH-Link R1&amp;E"></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>以后反正感觉不会怎么玩 WCH 的片子了，除了便宜，一无是处( )</p>
+
+<h2 id="STM32H723VGH6"><a href="#STM32H723VGH6" class="headerlink" title="STM32H723VGH6"></a>STM32H723VGH6</h2><p>High-performance and DSP with DP-FPU, Arm Cortex-M7 MCU with 1 MByte Flash, 564 Kbytes RAM, 550 MHz CPU, L1 cache, external memory interface, subset of peripherals.<br><img src="/img/blog/STM32H723/STM32H723VGH6.png" srcset="/img/loading.gif" lazyload alt="STM32H723VGH6"></p>
+<h3 id="Package-TFBGA-100"><a href="#Package-TFBGA-100" class="headerlink" title="Package TFBGA-100"></a>Package TFBGA-100</h3><p><img src="/img/blog/STM32H723/STM32H723_F.jpg" srcset="/img/loading.gif" lazyload alt="Front"><br><img src="/img/blog/STM32H723/STM32H723_B.jpg" srcset="/img/loading.gif" lazyload alt="Bottom"></p>
+<p><img src="/img/blog/STM32H723/STM32H723_N_F.jpg" srcset="/img/loading.gif" lazyload alt="Front"><br><img src="/img/blog/STM32H723/STM32H723_N_B.jpg" srcset="/img/loading.gif" lazyload alt="Bottom"><br><img src="/img/blog/STM32H723/STM32H723_N_45.jpg" srcset="/img/loading.gif" lazyload alt="R45"></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>u1s1，感觉不如 H750 但是 H723 也有 550MHz 的主频 1MByte Flash + 564Kbytes RAM，感觉也不算弱吧。</p>
 
                 
               </div>
@@ -366,11 +374,11 @@
       
         <a href="/tags/zh-CN/" class="print-no-link">#zh_CN</a>
       
-        <a href="/tags/Debugger/" class="print-no-link">#Debugger</a>
+        <a href="/tags/ST/" class="print-no-link">#ST</a>
       
-        <a href="/tags/Programmer/" class="print-no-link">#Programmer</a>
+        <a href="/tags/STM32/" class="print-no-link">#STM32</a>
       
-        <a href="/tags/WCH/" class="print-no-link">#WCH</a>
+        <a href="/tags/MCU/" class="print-no-link">#MCU</a>
       
     </div>
   
@@ -382,8 +390,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>WCH-Link R1&amp;E</div>
-      <div>https://canmi.xyz/2024/07/23/WCH-Link-R1&amp;E_zh_CN/</div>
+      <div>STM32H723</div>
+      <div>https://canmi.xyz/2024/07/23/STM32H723_zh_CN/</div>
     </div>
     <div class="license-meta">
       
@@ -427,12 +435,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2024/07/23/WCH-Link-R1&amp;E_zh_CN/" title="WCH-Link R1&amp;E">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WCH-Link R1&amp;E</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/23/STM32H723_zh_CN/" title="STM32H723">
-                        <span class="hidden-mobile">STM32H723</span>
+                      <a href="/2024/07/22/BSOD-Wallpaper_zh_CN/" title="BSOD Wallpaper">
+                        <span class="hidden-mobile">BSOD Wallpaper</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
