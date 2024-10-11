@@ -1,0 +1,7 @@
+*.html linguist-detectable=false
+*.md linguist-detectable=true
+*.ps1 linguist-detectable=true
+*.css linguist-detectable=true
+*.js linguist-detectable=true
+*.swig linguist-detectable=true
+*.swig linguist-language=Stylus
