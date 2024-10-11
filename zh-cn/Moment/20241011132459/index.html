@@ -18,7 +18,7 @@
 
 
 
-  <meta name="keywords" content="zh-cn, Hexo, nlvi" />
+  <meta name="keywords" content="Hexo, nlvi" />
 
 
 <link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
@@ -256,7 +256,8 @@
 <p id="time-elapsed"></p>
 
 <script>
-    const calculateElapsedTime = startDate => {
+    const calculateElapsedTime = startDate => 
+    {
         const start = new Date(startDate);
         const now = new Date();
         const diff = now - start;
@@ -271,12 +272,14 @@
 
     const updateElement = obj => str => obj.innerHTML = str;
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => 
+    {
         const startDate = "2024-07-03T15:03:21";
         const timeElapsedElement = document.getElementById("time-elapsed");
         const updateTimeElapsed = updateElement(timeElapsedElement);
         updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
-        setInterval(() => {
+        setInterval(() => 
+        {
             updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
         }, 1000);
     });
@@ -287,8 +290,6 @@
     </div>
     
       <div class="post-tags syuanpi fadeInRightShort back-3">
-      
-        <a href="/tags/zh-cn/">zh-cn</a>
       
         <a href="/tags/Hexo/">Hexo</a>
       
@@ -433,28 +434,12 @@
   <div class="tagcloud-taglist">
   
     <div class="tagcloud-tag">
-      <button>zh-cn</button>
-    </div>
-  
-    <div class="tagcloud-tag">
       <button>Hexo</button>
     </div>
   
   </div>
   
     <div class="tagcloud-postlist active">
-      <h2>zh-cn</h2>
-      
-        <div class="tagcloud-post">
-          <a href="/zh-cn/Moment/20241011132459/">
-            <time class="tagcloud-posttime">2024 / 10 / 11</time>
-            <span>Hello Hexo</span>
-          </a>
-        </div>
-      
-    </div>
-  
-    <div class="tagcloud-postlist ">
       <h2>Hexo</h2>
       
         <div class="tagcloud-post">
