@@ -360,7 +360,29 @@
   </nav>
 
 
-    
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline">
+  <noscript>Waline need JavaScript!</noscript>
+</div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://blog-waline-orcin.vercel.app',
+    path: window.location.pathname,
+    meta: [],
+    requiredMeta: ['nick', 'mail'],
+    lang: 'en',
+    emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo'],
+    dark: 'html[data-user-color-scheme="dark"]',
+    wordLimit: 0,
+    pageSize: 10,
+    admin: ['Canmi21@gmail.com'],
+    adminLabel: 'Owner',
+  });
+  </script>
+
+
   <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
   <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
     
