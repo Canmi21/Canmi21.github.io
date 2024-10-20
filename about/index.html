@@ -27,6 +27,9 @@
 
 <link rel="stylesheet" href="/script/css/iconfont.css">
 
+
+<link rel="stylesheet" href="/script/css/friends.css">
+
 <script>
   var nlviconfig = {
     title: "",
@@ -37,7 +40,7 @@
       lightbox: true,
       animate: true,
       search: true,
-      friends: false,
+      friends: true,
       reward: false,
       pjax: false,
       lazy: false,
@@ -268,6 +271,110 @@
         </div>
       </div>
       
+<div class="friend-links">
+  
+  <div class="friend" title="喵喵本喵"> <!-- 使用title属性来显示简介 -->
+    <a href="https://canmi21.github.io/about/" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="/img/Canmi.webp" alt="Canmi" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">Canmi</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="就是向阳 Hinata Hoshino !!"> <!-- 使用title属性来显示简介 -->
+    <a href="https://xyn.ltd" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="/img/Xyy.webp" alt="向阳" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">向阳</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="Try to create some value"> <!-- 使用title属性来显示简介 -->
+    <a href="https://halfsweet.cn" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="https://blog.halfsweet.cn/img/Headshot.jpg" alt="HalfSweet" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">HalfSweet</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="喵喵喵喵喵喵喵喵"> <!-- 使用title属性来显示简介 -->
+    <a href="https://www.chenxublog.com" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="https://cravatar.cn/avatar/b431bf781498d1fe47f732913dce394c?s=64&d=identicon&r=g" alt="晨旭" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">晨旭</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="&Determination."> <!-- 使用title属性来显示简介 -->
+    <a href="https://www.luogu.com/user/695194" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="/img/ZiAn.jpg" alt="ZiAn" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">ZiAn</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="探索浩瀚太空永无止境"> <!-- 使用title属性来显示简介 -->
+    <a href="https://fairingstudio.com/" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="/img/FairingStudio.png" alt="Fairing Studio" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">Fairing Studio</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="Ciallo～(∠・ω< )⌒★"> <!-- 使用title属性来显示简介 -->
+    <a href="https://iepl.moe/" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="https://server.iepl.moe/api/v2/objects/avatar/2nkm2itwu06n2ag8xp.jpeg" alt="Alice" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">Alice</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="KUN IS THE CUTEST!"> <!-- 使用title属性来显示简介 -->
+    <a href="https://soft.moe/" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="https://avatars.githubusercontent.com/u/89312077" alt="KUN" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">KUN</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="friend" title="Hi！Can We Be Friends？"> <!-- 使用title属性来显示简介 -->
+    <a href="https://a233a2.github.io" target="_blank" rel="noopener">
+      <div class="friend-content">
+        <img src="https://a233a2.github.io/关于/avatar111_hu13155440653352403661.png" alt="Sunjiyi" onerror="this.onerror=null; this.src='/'" />
+        <div class="friend-info">
+          <p class="link-title">Sunjiyi</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+</div>
+
+
       <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 <div id="waline">
   <noscript>Waline need JavaScript!</noscript>
@@ -281,7 +388,7 @@
     meta: [],
     requiredMeta: ['nick', 'mail'],
     lang: 'en',
-    emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo'],
+    emoji: ['https://unpkg.com/@waline/emojis@1.2.0/qq'],
     dark: 'html[data-user-color-scheme="dark"]',
     wordLimit: 0,
     pageSize: 10,
