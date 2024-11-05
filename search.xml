@@ -44,4 +44,21 @@
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>WCH-LinkE</title>
+    <url>/zh-cn/OpenSource/20241105085750/</url>
+    <content><![CDATA[<p>事情的起因是这样的，由于硬创设没有得到 WCH 的书面回复所以不认可 WCH 开源项目中源码的允许商用行为，所以下架了我的项目理由是版权问题( ), 那么不让我发布，那就丢在这里吧</p>
+<p><img src="/attachment%5C20241105%5C20241105090218.webp"></p>
+<h2 id="WCH-LinkE"><a href="#WCH-LinkE" class="headerlink" title="WCH-LinkE"></a>WCH-LinkE</h2><p><img src="/attachment%5C20241105%5C20241105091037.webp"><br><img src="/attachment%5C20241105%5C20241105091021.webp"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/SCH_WCH-LinkE_2024-06-04.pdf">SCH</a><br><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/Gerber_WCH-LinkE_2024-06-04.zip">Gerber</a><br><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/PickAndPlace_WCH-LinkE_2024-06-04.xlsx">PickAndPlace</a></p>
+<p><a href="attachment/20241105/">iBOM</a><br><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/BOM_WCH-LinkE_WCH-LinkE_2024-06-04.xlsx">BOM</a></p>
+<p><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCH-LinkUserManual.PDF">PDF</a><br><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCH-LinkE-APP-IAP.bin">Firmware</a><br><a href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCHISPTool_Setup.exe">ComputerInterface</a></p>
+]]></content>
+      <categories>
+        <category>OpenSource</category>
+      </categories>
+      <tags>
+        <tag>WCH</tag>
+      </tags>
+  </entry>
 </search>

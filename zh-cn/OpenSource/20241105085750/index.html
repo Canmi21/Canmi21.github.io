@@ -18,6 +18,8 @@
 
 
 
+  <meta name="keywords" content="WCH, nlvi" />
+
 
 <link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
 <link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
@@ -84,12 +86,7 @@
 }
 </style>
 
-  <title>
-  
-  
-    | Canmi21
-  
-</title>
+  <title> WCH-LinkE ·  </title>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
   <div class="container">
@@ -231,15 +228,11 @@
       <main class="main" id="main">
         <div class="main-wrapper">
           
-  
-
-<section class="posts">
-  
     
   
   <article class="
   post
-  
+   is_post 
   ">
     <header class="post-header">
       <div class="post-time syuanpi fadeInRightShort back-1">
@@ -255,22 +248,20 @@
       </div>
       <h1 class="post-title syuanpi fadeInRightShort back-2">
         
-          <a href="/zh-cn/OpenSource/20241105085750/">WCH-LinkE</a>
+          WCH-LinkE
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInRightShort back-3">
       
-        
-          事情的起因是这样的，由于硬创设没有得到 WCH 的书面回复所以不认可 WCH 开源项目中源码的允许商用行为，所以下架了我的项目理由是版权问题( ), 那么不让我发布，那就丢在这里吧
-        
+        <p>事情的起因是这样的，由于硬创设没有得到 WCH 的书面回复所以不认可 WCH 开源项目中源码的允许商用行为，所以下架了我的项目理由是版权问题( ), 那么不让我发布，那就丢在这里吧</p>
+<p><img src="/attachment%5C20241105%5C20241105090218.webp"></p>
+<h2 id="WCH-LinkE"><a href="#WCH-LinkE" class="headerlink" title="WCH-LinkE"></a>WCH-LinkE</h2><p><img src="/attachment%5C20241105%5C20241105091037.webp"><br><img src="/attachment%5C20241105%5C20241105091021.webp"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/SCH_WCH-LinkE_2024-06-04.pdf">SCH</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/Gerber_WCH-LinkE_2024-06-04.zip">Gerber</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/PickAndPlace_WCH-LinkE_2024-06-04.xlsx">PickAndPlace</a></p>
+<p><a href="attachment/20241105/">iBOM</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/BOM_WCH-LinkE_WCH-LinkE_2024-06-04.xlsx">BOM</a></p>
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCH-LinkUserManual.PDF">PDF</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCH-LinkE-APP-IAP.bin">Firmware</a><br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/WCH-LinkE/refs/heads/main/WCHISPTool_Setup.exe">ComputerInterface</a></p>
+
       
-    
-      <p class="content-link">
-        <a href="/zh-cn/OpenSource/20241105085750/#more">
-          <span>Read More...</span>
-        </a>
-      </p>
     
     </div>
     
@@ -281,100 +272,126 @@
       </div>
     
     
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInRightShort back-1">
-        <div class="post-time-wrapper">
-          
-          <time>2024-10-11</time>
-          
-            
-              <span class="post-category"><a href="/categories/Moment/">Moment</a></span>
-            
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInRightShort back-2">
-        
-          <a href="/zh-cn/Moment/20241011132459/">Hello Hexo</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInRightShort back-3">
       
-        
-          <p>今天基本搭建完了这个小站，一方面是因为自己之前写的内容都没有被很好的保存，有些时候也会因为一个奇怪的原因被下架，那干脆就自己搭一个网站(x) 在这里记录一下生活和研究还是挺好的，希望后面能抽空写点有意义的内容吧。   </p>
-<p>另外介绍一下吧:<br>本站使用了 Node.js 基于 Hexo 框架和 Nlvi 主题修改，页面渲染使用了 Swig 动画是 JS+CSS 写的，部分依赖于 LightBox，部署在 Github Page 上面，使用了 Cloudflare &amp; CDN 代理)</p>
-<p id="time-elapsed"></p>
 
-<script>
-    const calculateElapsedTime = startDate => 
-    {
-        const start = new Date(startDate);
-        const now = new Date();
-        const diff = now - start;
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        return `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    };
-
-    const updateElement = obj => str => obj.innerHTML = str;
-
-    document.addEventListener("DOMContentLoaded", () => 
-    {
-        const startDate = "2024-07-03T15:03:21";
-        const timeElapsedElement = document.getElementById("time-elapsed");
-        const updateTimeElapsed = updateElement(timeElapsedElement);
-        updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
-        setInterval(() => 
-        {
-            updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
-        }, 1000);
-    });
-</script>
-
-        
       
-    
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>Canmi</span>
     </div>
-    
-      <div class="post-tags syuanpi fadeInRightShort back-3">
+    <div class="copy-license">
       
-        <a href="/tags/Hexo/">Hexo</a>
-      
-      </div>
-    
+      MIT & Apache-2.0 license 2024
+    </div>
+    <div class="copy-url">
+      <a href="javascript:void(0);" class="fake-link" onclick="handleClick(this, 'https://canmi21.github.io/zh-cn/OpenSource/20241105085750/');">
+        https://xyy.canmi.xyz/zh-cn/OpenSource/20241105085750/
+      </a>
+    </div>
+  </div>
+  <script>
+    let alreadyCopied = false;
+    function handleClick(element, text) 
+    {
+      if (!alreadyCopied) 
+      {
+        copyToClipboard(text);
+        element.innerHTML = element.innerHTML + ' √';
+        alreadyCopied = true;
+      }
+      else 
+      {
+        alert('Link has been copied!');
+      }
+    }
+
+    function copyToClipboard(text) 
+    {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-1000px';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+  </script>
+  <style>
+    .fake-link 
+    {
+      cursor: pointer;
+    }
+  </style>
+
+
     
   </article>
   
-  
     
-  
-
-  
-</section>
-
-  
-  <nav class="pagination">
-      <span class="page-number current">1</span>
+  <nav class="article-page">
+    
+    
+      <a href="/zh-cn/Moment/20241011132459/" id="art-right" class="art-right">
+        <span class="prev-title">
+          Hello Hexo<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
   </nav>
 
+
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline">
+  <noscript>Waline need JavaScript!</noscript>
+</div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://blog-waline-orcin.vercel.app',
+    path: window.location.pathname,
+    meta: [],
+    requiredMeta: ['nick', 'mail'],
+    lang: 'en',
+    emoji: ['https://unpkg.com/@waline/emojis@1.2.0/qq'],
+    dark: 'html[data-user-color-scheme="dark"]',
+    wordLimit: 0,
+    pageSize: 10,
+    admin: ['Canmi21@gmail.com'],
+    adminLabel: 'Owner',
+  });
+  </script>
+
+
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>Index</span></div>
+    <div class="toc-inner">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WCH-LinkE"><span class="toc-text">WCH-LinkE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+
+  
 
 
         </div>
@@ -497,6 +514,20 @@
 <script src="/script/bootstarp.js"></script>
 
 
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
 
 
 
