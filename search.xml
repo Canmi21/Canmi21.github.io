@@ -42,6 +42,7 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -73,6 +74,7 @@
       </categories>
       <tags>
         <tag>WCH</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -85,6 +87,7 @@
       </categories>
       <tags>
         <tag>MI</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -97,6 +100,7 @@
       </categories>
       <tags>
         <tag>WCH</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -107,6 +111,9 @@
       <categories>
         <category>Moment</category>
       </categories>
+      <tags>
+        <tag>Moment</tag>
+      </tags>
   </entry>
   <entry>
     <title>PW-Link GD32F303</title>
@@ -118,6 +125,7 @@
       </categories>
       <tags>
         <tag>PW</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -130,6 +138,7 @@
       </categories>
       <tags>
         <tag>ST</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
   <entry>
@@ -145,6 +154,20 @@
       <tags>
         <tag>PW</tag>
         <tag>OpenSource</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USBC24P 测线仪</title>
+    <url>/zh-cn/Moment/20241119132156/</url>
+    <content><![CDATA[<p><img src="/attachment/20241119/20241117111542.webp"><br><img src="/attachment/20241119/20241117111540.webp"><br><img src="/attachment/20241119/20241117111539.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>ST</tag>
+        <tag>USBC</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
 </search>
