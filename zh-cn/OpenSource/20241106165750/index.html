@@ -18,6 +18,8 @@
 
 
 
+  <meta name="keywords" content="PW, OpenSource, nlvi" />
+
 
 <link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
 <link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
@@ -84,11 +86,7 @@
 }
 </style>
 
-  <title>
-  
-    Archives · 
-  
-</title>
+  <title> PW-Link (DAP-CMSIS) ·  </title>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
   <div class="container">
@@ -231,103 +229,168 @@
         <div class="main-wrapper">
           
     
-  <div class="archive syuanpi fadeInRightShort" id="archive">
-    
-      <aside class="archive-title">Total</aside>
-      <span class="archive-num">9 Posts In Total</span>
-    
-      
-      
-        
-          
-          
-            
-            
-            <div class="archive-group">
-            <time class="archive-year"> 2024 </time>
-            <div class="archive-list">
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p>今天基本搭建完了这个小站，一方面是因为自己之前写的内容都没有被很好的保存，有些时候也会因为一个奇怪的原因被下架，那干脆就自己搭一个网站(x) 在这里记录一下生活和研究还是挺好的，希望后面能抽空写点有意义的内容吧。   </p>
-<p>另外介绍一下吧:<br>本站使用了 Node.js 基于 Hexo 框架和 Nlvi 主题修改，页面渲染使用了 Swig 动画是 JS+CSS 写的，部分依赖于 LightBox，部署在 Github Page 上面，使用了 Cloudflare &amp; CDN 代理)</p>
-<p id="time-elapsed"></p>
-
-<script>
-    const calculateElapsedTime = startDate => 
-    {
-        const start = new Date(startDate);
-        const now = new Date();
-        const diff = now - start;
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        return `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    };
-
-    const updateElement = obj => str => obj.innerHTML = str;
-
-    document.addEventListener("DOMContentLoaded", () => 
-    {
-        const startDate = "2024-07-03T15:03:21";
-        const timeElapsedElement = document.getElementById("time-elapsed");
-        const updateTimeElapsed = updateElement(timeElapsedElement);
-        updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
-        setInterval(() => 
-        {
-            updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
-        }, 1000);
-    });
-</script>
-
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2024-10-11
-            </time>
-            <a  class="archive-post-link" href="/zh-cn/Moment/20241011132459/">
-              Hello Hexo
-            </a>
-          </div>
-        </div>
-      
-        
-          
-          
-          
-        <div class="archive-post">
-          <div class="archive-post-content">
-            
-              <p><img src="/attachment/20241008/IMG_20241117_121630.webp"><br><img src="/attachment/20241008/IMG_20241117_121657.webp"></p>
-
-            
-          </div>
-          <div class="archive-post-info">
-            <time class="archive-post-time">
-              2024-10-08
-            </time>
-            <a  class="archive-post-link" href="/en/Moment/20241008000034/">
-              ST-Link V3 STM32F723
-            </a>
-          </div>
-        </div>
-      
-      
-        </section></section>
-      
-  </div>
   
-  <nav class="pagination">
-      <span class="page-number current">1</span>
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2024-11-06</time>
+          
+            
+              <span class="post-category"><a href="/categories/OpenSource/">OpenSource</a></span>
+            
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          PW-Link (DAP-CMSIS)
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <h2 id="PowerWriter"><a href="#PowerWriter" class="headerlink" title="PowerWriter"></a>PowerWriter</h2><p><img src="/attachment/20240810/20241117111537.webp"><br><img src="/attachment/20240810/20241117111536.webp"></p>
+<h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Canmi21/PW-Link-CMSIS.git</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/PW-Link-CMSIS/refs/heads/master/Gerber/Gerber_PW-Link_V2.13_2024-11-19.zip">Gerber</a>  <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/PW-Link-CMSIS/refs/heads/master/iBOM/PickAndPlace_PW-Link%20V2.13_2024-11-19.xlsx">PickAndPlace</a>  <a href="/iBOM/20241106">iBOM</a>  <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Canmi21/PW-Link-CMSIS/refs/heads/master/iBOM/BOM_PW-Link%20V2.13_PW-Link%20V2.13_2024-11-19.xlsx">BOM</a></p>
+
+      
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/PW/">PW</a>
+      
+        <a href="/tags/OpenSource/">OpenSource</a>
+      
+      </div>
+    
+    
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>Canmi</span>
+    </div>
+    <div class="copy-license">
+      
+      MIT & Apache-2.0 license 2024
+    </div>
+    <div class="copy-url">
+      <a href="javascript:void(0);" class="fake-link" onclick="handleClick(this, 'https://canmi21.github.io/zh-cn/OpenSource/20241106165750/');">
+        https://xyy.canmi.xyz/zh-cn/OpenSource/20241106165750/
+      </a>
+    </div>
+  </div>
+  <script>
+    let alreadyCopied = false;
+    function handleClick(element, text) 
+    {
+      if (!alreadyCopied) 
+      {
+        copyToClipboard(text);
+        element.innerHTML = element.innerHTML + ' √';
+        alreadyCopied = true;
+      }
+      else 
+      {
+        alert('Link has been copied!');
+      }
+    }
+
+    function copyToClipboard(text) 
+    {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-1000px';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+  </script>
+  <style>
+    .fake-link 
+    {
+      cursor: pointer;
+    }
+  </style>
+
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/zh-cn/OpenSource/20241105085750/" id="art-right" class="art-right">
+        <span class="prev-title">
+          WCH-LinkE<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
   </nav>
 
 
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline">
+  <noscript>Waline need JavaScript!</noscript>
+</div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://blog-waline-orcin.vercel.app',
+    path: window.location.pathname,
+    meta: [],
+    requiredMeta: ['nick', 'mail'],
+    lang: 'en',
+    emoji: ['https://unpkg.com/@waline/emojis@1.2.0/qq'],
+    dark: 'html[data-user-color-scheme="dark"]',
+    wordLimit: 0,
+    pageSize: 10,
+    admin: ['Canmi21@gmail.com'],
+    adminLabel: 'Owner',
+  });
+  </script>
+
+
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>Index</span></div>
+    <div class="toc-inner">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PowerWriter"><span class="toc-text">PowerWriter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download"><span class="toc-text">Download</span></a></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+
+  
 
 
         </div>
@@ -542,6 +605,20 @@
 <script src="/script/bootstarp.js"></script>
 
 
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
 
 
 
