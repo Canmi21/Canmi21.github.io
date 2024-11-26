@@ -307,7 +307,8 @@
 <p>我是学生<br>不擅长任何语言 就知道<span style="color: rgb(253, 153, 153);">CV</span><br>目前正在学习嵌入式编程  </p>
 <hr>
 <p><a target="_blank" rel="noopener" href="https://github.com/Canmi21?tab=repositories"><img src="https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=Canmi21&layout=compact&include_all_commits=true&theme=light" alt="Top Langs"></a></p>
-<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><hr>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p>顺序会被打乱哦(小声)</p>
+<hr>
 
           
         </div>
@@ -350,7 +351,7 @@
   </div>
   
   <div class="friend" title="&Determination.">
-    <a href="https://www.luogu.com/user/695194/" target="_blank" rel="noopener">
+    <a href="https://www.luogu.com/user/695194" target="_blank" rel="noopener">
       <div class="friend-content">
         <img src="/img/ZiAn.jpg" alt="ZiAn" onerror="this.onerror=null; this.src='https://s.nmxc.ltd/sakurairo_vision/@2.7/basic/friendlink.jpg'" />
         <div class="friend-info">
@@ -484,6 +485,24 @@
 </div>
 
 <script>
+  window.addEventListener('load', function() {
+    var container = document.querySelector('.friend-links');
+    var friends = Array.from(container.children);
+    friends.forEach(function(friendElement) {
+
+      var friendName = friendElement.querySelector('.link-title').textContent.trim();
+
+      if (friendName === "向阳") {
+        friendElement.addEventListener('click', function(event) {
+          event.preventDefault();
+          alert("不给看!!!");
+        });
+      }
+    });
+  });
+</script>
+
+<script>
   //随机友链顺序
   window.addEventListener('load', function() {
     var container = document.querySelector('.friend-links');
@@ -535,21 +554,21 @@
   function handleClick(element, text) {
     if (!alreadyCopied) {
       copyToClipboard(text);
-      element.innerHTML = element.innerHTML + ' √'; // 添加提示符号
+      element.innerHTML = element.innerHTML + ' √'; // 添加提示
       alreadyCopied = true;
     } else {
-      alert('Link has been copied!'); // 重复点击提示
+      alert('Link has been copied!');
     }
   }
 
   function copyToClipboard(text) {
     const tempInput = document.createElement('input');
     tempInput.style.position = 'absolute';
-    tempInput.style.left = '-1000px'; // 隐藏输入框
+    tempInput.style.left = '-1000px';
     tempInput.value = text;
     document.body.appendChild(tempInput);
     tempInput.select();
-    document.execCommand('copy'); // 执行复制命令
+    document.execCommand('copy');
     document.body.removeChild(tempInput);
   }
 </script>
