@@ -433,8 +433,9 @@
     这是一个友链页面，欢迎大家留言或者私聊添加自己的友链，留言的话需要以下内容：
     你也可以
     <span
-      style="color: rgb(253,153,153); cursor: pointer;"
-      onclick="copyToClipboard(`name: 'Canmi'\n  link: 'https://canmi21.github.io'\n  avatar: 'https://canmi21.github.io/img/Canmi.webp'\n  intro: '彩笔猫猫'`)">
+      class="fake-link"
+      style="color: rgb(253,153,153);"
+      onclick="handleClick(this, `name: 'Canmi'\n intro: '彩笔猫猫'\n link:'https://canmi21.github.io'\n avatar: 'https://canmi21.github.io/img/Canmi.webp'`)">
       复制我的
     </span>
   </p>
@@ -447,14 +448,35 @@
 </div>
 
 <script>
+  let alreadyCopied = false;
+
+  function handleClick(element, text) {
+    if (!alreadyCopied) {
+      copyToClipboard(text);
+      element.innerHTML = element.innerHTML + ' √'; // 添加提示符号
+      alreadyCopied = true;
+    } else {
+      alert('Link has been copied!'); // 重复点击提示
+    }
+  }
+
   function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('内容已复制到剪贴板！');
-    }).catch(err => {
-      console.error('复制失败：', err);
-    });
+    const tempInput = document.createElement('input');
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-1000px'; // 隐藏输入框
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy'); // 执行复制命令
+    document.body.removeChild(tempInput);
   }
 </script>
+
+<style>
+  .fake-link {
+    cursor: pointer; /* 鼠标指针样式 */
+  }
+</style>
 
       <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 <div id="waline">
