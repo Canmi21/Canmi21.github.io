@@ -429,7 +429,15 @@
 
 
 <div class="friend-intro-message" style="margin-top: 30px; margin-bottom: 30px; padding-left: 35px;"> <!-- 通过 padding-left 向右移动 -->
-  <p>这是一个友链页面，欢迎大家留言或者私聊添加自己的友链，留言的话需要以下内容：</p>
+  <p>
+    这是一个友链页面，欢迎大家留言或者私聊添加自己的友链，留言的话需要以下内容：
+    你也可以
+    <span
+      style="color: rgb(253,153,153); cursor: pointer;"
+      onclick="copyToClipboard(`name: 'Canmi'\n  link: 'https://canmi21.github.io'\n  avatar: 'https://canmi21.github.io/img/Canmi.webp'\n  intro: '彩笔猫猫'`)">
+      复制我的
+    </span>
+  </p>
   <ul>
     <li><span></span><span style="color: rgb(253,153,153);">你的名称</span></li>
     <li>你的网站链接</li>
@@ -437,6 +445,16 @@
     <li>你的头像文件或者链接<del>（可选）</del></li>
   </ul>
 </div>
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('内容已复制到剪贴板！');
+    }).catch(err => {
+      console.error('复制失败：', err);
+    });
+  }
+</script>
 
       <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 <div id="waline">
