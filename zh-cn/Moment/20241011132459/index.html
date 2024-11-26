@@ -325,6 +325,26 @@
   </div>
 
   <script>
+    let clickCountPageCopy = 0;
+  
+    document.addEventListener('copy', function(event) {
+      clickCountPageCopy++;
+      const copiedText = window.getSelection().toString();
+      if (copiedText != "name: 'Canmi' intro: '彩笔猫猫' link:'https://canmi21.github.io' avatar: 'https://canmi21.github.io/img/Canmi.webp'") {
+        if (clickCountPageCopy === 1) {
+          showMessage("已复制,请注意注明出处!", 3, 'yellow');
+        } else if (clickCountPageCopy < 21) {
+          showMessage("已复制!", 1, 'green');
+        } else if (clickCountPageCopy === 21) {
+          showMessage("你到底在做什么哇", 3, 'green');
+        } else {
+          showMessage("你不准复制了!", 0, 'red');
+        }
+      }
+    });
+  </script>
+  
+  <script>
     let alreadyCopied = false;
 
     let clickCount = 0;
