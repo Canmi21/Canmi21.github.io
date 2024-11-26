@@ -554,6 +554,91 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // 显示消息框
+  function showMessage(content, duration, color) {
+    var messageBox = document.createElement('div');
+    messageBox.classList.add('message-box');
+    messageBox.textContent = content;
+
+    // 设置消息框背景色
+    var colors = {
+      red: 'rgb(253, 153, 153)', // 红色
+      yellow: 'rgb(255, 255, 153)', // 黄色
+      green: 'rgb(153, 253, 153)', // 绿色
+      blue: 'rgb(153, 153, 253)' // 蓝色
+    };
+
+    messageBox.style.backgroundColor = colors[color] || colors.red; // 默认红色
+
+    document.body.appendChild(messageBox);
+
+    // 动画显示
+    setTimeout(function() {
+      messageBox.classList.add('show');
+    }, 50);
+
+    // 设置显示时间，时间到后隐藏消息
+    if (duration > 0) {
+      setTimeout(function() {
+        messageBox.classList.remove('show');
+        setTimeout(function() {
+          document.body.removeChild(messageBox);
+        }, 300);
+      }, duration * 1000); // 持续时间（秒转毫秒）
+    }
+  }
+</script>
+
+<style>
+  .fake-link {
+    cursor: pointer; /* 鼠标指针样式 */
+  }
+
+  /* 消息框基础样式 */
+  .message-box {
+    position: fixed;
+    top: 21px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* 消息框显示动画 */
+  .message-box.show {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<script>
+  let clickCountPageCopy = 0;
+
+  document.addEventListener('copy', function(event) {
+    clickCountPageCopy++;
+    const copiedText = window.getSelection().toString();
+    if (copiedText != "name: 'Canmi' intro: '彩笔猫猫' link:'https://canmi21.github.io' avatar: 'https://canmi21.github.io/img/Canmi.webp'") {
+      if (clickCountPageCopy === 1) {
+        showMessage("已复制,请注意注明出处!", 3, 'yellow');
+      } else if (clickCountPageCopy < 21) {
+        showMessage("已复制!", 1, 'green');
+      } else if (clickCountPageCopy === 21) {
+        showMessage("你到底在做什么哇", 3, 'green');
+      } else {
+        showMessage("你不准复制了!", 0, 'red');
+      }
+    }
+  });
+</script>
     </div>
     <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-taglist">
