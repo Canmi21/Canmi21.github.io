@@ -318,7 +318,7 @@
   <!-- 渲染所有友链 -->
   
   <div class="friend" title="就是向阳 Hinata Hoshino !!">
-    <a href="https://xyn.lt/d" target="_blank" rel="noopener">
+    <a href="https://xyn.ltd/" target="_blank" rel="noopener">
       <div class="friend-content">
         <img src="/img/Xyy.webp" alt="向阳" onerror="this.onerror=null; this.src='https://s.nmxc.ltd/sakurairo_vision/@2.7/basic/friendlink.jpg'" />
         <div class="friend-info">
@@ -485,30 +485,150 @@
 </div>
 
 <script>
+  let clickCountPageCopy = 0;
+
+  document.addEventListener('copy', function(event) {
+    clickCountPageCopy++;
+    const copiedText = window.getSelection().toString();
+    if (copiedText != "name: 'Canmi' intro: '彩笔猫猫' link:'https://canmi21.github.io' avatar: 'https://canmi21.github.io/img/Canmi.webp'") {
+      if (clickCountPageCopy === 1) {
+        showMessage("已复制,请注意注明出处!", 3, 'yellow');
+      } else if (clickCountPageCopy < 21) {
+        showMessage("已复制!", 1, 'green');
+      } else if (clickCountPageCopy === 21) {
+        showMessage("你到底在做什么哇", 3, 'green');
+      } else {
+        showMessage("你不准复制了!", 0, 'red');
+      }
+    }
+  });
+</script>
+
+<script>
+  // 显示消息框
+  function showMessage(content, duration, color) {
+    var messageBox = document.createElement('div');
+    messageBox.classList.add('message-box');
+    messageBox.textContent = content;
+
+    // 设置消息框背景色
+    var colors = {
+      red: 'rgb(253, 153, 153)',
+      yellow: 'rgb(255, 255, 153)',
+      green: 'rgb(153, 253, 153)',
+      blue: 'rgb(153, 153, 253)'
+    };
+
+    messageBox.style.backgroundColor = colors[color] || colors.red; // 默认红色
+
+    document.body.appendChild(messageBox);
+
+    // 动画显示
+    setTimeout(function() {
+      messageBox.classList.add('show');
+    }, 50);
+
+    // 设置显示时间，时间到后隐藏消息
+    if (duration > 0) {
+      setTimeout(function() {
+        messageBox.classList.remove('show');
+        setTimeout(function() {
+          document.body.removeChild(messageBox);
+        }, 300);
+      }, duration * 1000); // 持续时间ms
+    }
+  }
+
+  let clickCountXyy = 0;
+  // 监听"向阳"
   window.addEventListener('load', function() {
     var container = document.querySelector('.friend-links');
     var friends = Array.from(container.children);
-    friends.forEach(function(friendElement) {
 
+    friends.forEach(function(friendElement) {
       var friendName = friendElement.querySelector('.link-title').textContent.trim();
 
       if (friendName === "向阳") {
-        friendElement.addEventListener('click', function(event) {
-          event.preventDefault();
-          alert("不给看!!!");
+        var hasClicked = false;
+
+        friendElement.querySelector('a').addEventListener('click', function(event) {
+          clickCountXyy++;
+          if (clickCountXyy === 1) {
+            event.preventDefault();
+            showMessage("不给看!!!", 1, 'red');
+            hasClicked = true;
+          } else if (clickCountXyy === 2) {
+            event.preventDefault();
+            showMessage("不给看!!!", 3, 'red');
+          } else if (clickCountXyy < 5) {
+            event.preventDefault();
+            showMessage("不准点!!!", 3, 'red');
+          } else if (clickCountXyy === 5) {
+            event.preventDefault();
+            showMessage("真的没什么好看的嘛", 1, 'yellow');
+          } else if (clickCountXyy === 6 ) {
+            event.preventDefault();
+            showMessage("你在期待什么", 1, 'red');
+          } else if (clickCountXyy === 7 ) {
+            event.preventDefault();
+            showMessage("自己慢慢玩吧", 1, 'red');
+          } else if (clickCountXyy < 10 ) {
+            event.preventDefault();
+            showMessage("放弃吧，没用的", 3, 'red');
+          } else if (clickCountXyy === 10 ) {
+            event.preventDefault();
+            showMessage("看就看", 1, 'green');
+            setTimeout(function() {
+              window.open("https://xyn.ltd/", "_blank");
+            }, 1000);
+          } else if (clickCountXyy === 11 ) {
+            event.preventDefault();
+            showMessage("没什么好看的吧", 1, 'yellow');
+          } else {
+            event.preventDefault();
+          }
         });
       }
     });
   });
 </script>
 
+<style>
+  /* 消息框基础样式 */
+  .message-box {
+    position: fixed;
+    top: 21px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* 显示消息框动画 */
+  .message-box.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 模拟链接的样式 */
+  .fake-link {
+    cursor: pointer;
+  }
+</style>
+
 <script>
-  //随机友链顺序
+  // 随机打乱友链顺序
   window.addEventListener('load', function() {
     var container = document.querySelector('.friend-links');
     var friends = Array.from(container.children);
 
-    // Xyy
     var firstFriend = friends[0];
     var restFriends = friends.slice(1);
 
@@ -520,16 +640,16 @@
     }
 
     shuffleArray(restFriends);
-    container.innerHTML = '';
-    container.appendChild(firstFriend);
+    container.innerHTML = ''; // 清空容器
+    container.appendChild(firstFriend); // 保留第一个元素
     restFriends.forEach(function(friend) {
-      container.appendChild(friend);
+      container.appendChild(friend); // 重新添加打乱后的元素
     });
   });
 </script>
 
-
-<div class="friend-intro-message" style="margin-top: 30px; margin-bottom: 30px; padding-left: 35px;"> <!-- 通过 padding-left 向右移动 -->
+<!-- 友链页面介绍 -->
+<div class="friend-intro-message" style="margin-top: 30px; margin-bottom: 30px; padding-left: 35px;">
   <p>
     这是一个友链页面，欢迎大家留言或者私聊添加自己的友链，留言的话需要以下内容：
     你也可以
@@ -556,8 +676,9 @@
       copyToClipboard(text);
       element.innerHTML = element.innerHTML + ' √'; // 添加提示
       alreadyCopied = true;
+      showMessage("已复制", 1, 'green'); // 已经复制，显示消息框
     } else {
-      alert('Link has been copied!');
+      showMessage("已经复制了!", 1, 'red'); // 已经复制，显示消息框
     }
   }
 
@@ -578,6 +699,8 @@
     cursor: pointer; /* 鼠标指针样式 */
   }
 </style>
+
+
 
       <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 <div id="waline">
