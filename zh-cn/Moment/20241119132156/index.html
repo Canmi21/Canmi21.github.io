@@ -21,6 +21,22 @@
   <meta name="keywords" content="ST, USBC, Moment, LCD, nlvi" />
 
 
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.33/darkreader.min.js"></script>
+
+<script>
+    window.onload = function() {
+      DarkReader.auto({
+        brightness: 100,   // 调整亮度
+        contrast: 90,      // 调整对比度
+        sepia: 10          // 调整色调
+      });
+
+      if (DarkReader.isEnabled()) {
+        console.log("Dark mode is enabled!");
+      }
+    };
+</script>
+
 <link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
 <link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
 
