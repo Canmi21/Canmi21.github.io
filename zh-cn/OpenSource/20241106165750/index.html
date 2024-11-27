@@ -305,13 +305,13 @@
       if (clickCount === 1) {
         copyToClipboard(text);
         element.innerHTML = element.innerHTML + ' √'; 
-        showMessage("已复制！", 1, 'green');
+        showMessage("已复制,请注意注明出处!", 1, 'green');
       } else if (clickCount === 2 || clickCount === 3) {
-        showMessage("已经复制了！", 1, 'red'); // 黄色提示框
+        showMessage("已经复制了！", 1, 'red');
       } else if (clickCount < 5){
-        showMessage("已经复制了！", 3, 'red'); // 红色提示框
+        showMessage("已经复制了！", 3, 'red');
       } else {
-        showMessage("你不准再复制了！", 0, 'red'); // 红色提示框
+        showMessage("你不准再复制了！", 0, 'red');
       }
     }
 
@@ -365,9 +365,9 @@
 
       // 设置消息框背景色
       var colors = {
-        red: 'rgb(253, 153, 153)', // 红色
-        yellow: 'rgb(255, 255, 153)', // 黄色
-        green: 'rgb(153, 253, 153)', // 绿色
+        red: 'rgb(253, 153, 153)',
+        yellow: 'rgb(255, 255, 153)',
+        green: 'rgb(153, 253, 153)',
         blue: 'rgb(153, 153, 253)' // 蓝色
       };
 
