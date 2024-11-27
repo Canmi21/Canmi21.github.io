@@ -350,7 +350,23 @@
           
         </div>
       </div>
-      
+      <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.33/darkreader.min.js"></script>
+
+<script>
+    window.onload = function() {
+      DarkReader.auto({
+        brightness: 100,   // 调整亮度
+        contrast: 90,      // 调整对比度
+        sepia: 10          // 调整色调
+      });
+
+      if (DarkReader.isEnabled()) {
+        console.log("Dark mode is enabled!");
+      }
+    };
+</script>
+
+
 <div class="friend-links">
   <!-- 渲染所有友链 -->
   
