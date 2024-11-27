@@ -274,15 +274,130 @@
       
 
       
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>Canmi</span>
+    </div>
+    <div class="copy-license">
+      
+      MIT & Apache-2.0 license 2024
+    </div>
+    <div class="copy-url">
+      <a href="javascript:void(0);" class="fake-link" onclick="handleClick(this, 'https://canmi21.github.io/en/Moment/20240524112329/');">
+        https://xyy.canmi.xyz/en/Moment/20240524112329/
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let alreadyCopied = false;
+
+    let clickCount = 0;
+
+    function handleClick(element, text) {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        copyToClipboard(text);
+        element.innerHTML = element.innerHTML + ' √'; 
+        showMessage("已复制,请注意注明出处!", 1, 'green');
+      } else if (clickCount === 2 || clickCount === 3) {
+        showMessage("已经复制了！", 1, 'red');
+      } else if (clickCount < 5){
+        showMessage("已经复制了！", 3, 'red');
+      } else {
+        showMessage("你不准再复制了！", 0, 'red');
+      }
+    }
+
+    function copyToClipboard(text) {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-1000px';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+  </script>
+
+  <style>
+    .fake-link {
+      cursor: pointer; /* 鼠标指针样式 */
+    }
+
+    /* 消息框基础样式 */
+    .message-box {
+      position: fixed;
+      top: 21px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: black;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* 消息框显示动画 */
+    .message-box.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+
+  <script>
+    // 显示消息框
+    function showMessage(content, duration, color) {
+      var messageBox = document.createElement('div');
+      messageBox.classList.add('message-box');
+      messageBox.textContent = content;
+
+      // 设置消息框背景色
+      var colors = {
+        red: 'rgb(253, 153, 153)',
+        yellow: 'rgb(255, 255, 153)',
+        green: 'rgb(153, 253, 153)',
+        blue: 'rgb(153, 153, 253)'
+      };
+
+      messageBox.style.backgroundColor = colors[color] || colors.red; // 默认红色
+
+      document.body.appendChild(messageBox);
+
+      // 动画显示
+      setTimeout(function() {
+        messageBox.classList.add('show');
+      }, 50);
+
+      // 设置显示时间，时间到后隐藏消息
+      if (duration > 0) {
+        setTimeout(function() {
+          messageBox.classList.remove('show');
+          setTimeout(function() {
+            document.body.removeChild(messageBox);
+          }, 300);
+        }, duration * 1000); // 持续时间（秒转毫秒）
+      }
+    }
+  </script>
+
+
     
   </article>
   
     
   <nav class="article-page">
     
-      <a href="/en/Moment/20240630001224/" id="art-left" class="art-left">
+      <a href="/zh-cn/Moment/20240610130000/" id="art-left" class="art-left">
         <span class="next-title">
-          <i class="iconfont icon-left"></i>MI A->C 10G
+          <i class="iconfont icon-left"></i>ESP32-PICO-D4
         </span>
       </a>
     
@@ -574,6 +689,14 @@
       <button>mspxr</button>
     </div>
   
+    <div class="tagcloud-tag">
+      <button>ESP</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>LCD</button>
+    </div>
+  
   </div>
   
     <div class="tagcloud-postlist active">
@@ -616,6 +739,13 @@
           <a href="/en/Moment/20241117180034/">
             <time class="tagcloud-posttime">2024 / 11 / 17</time>
             <span>PD SWAP</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20240621140000/">
+            <time class="tagcloud-posttime">2024 / 06 / 21</time>
+            <span></span>
           </a>
         </div>
       
@@ -666,6 +796,13 @@
           <a href="/zh-cn/Moment/20241119132156/">
             <time class="tagcloud-posttime">2024 / 11 / 19</time>
             <span>USBC24P 测线仪</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241123171056/">
+            <time class="tagcloud-posttime">2024 / 11 / 23</time>
+            <span>彩色丝印的正确通途(x)</span>
           </a>
         </div>
       
@@ -768,6 +905,34 @@
           </a>
         </div>
       
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241118082156/">
+            <time class="tagcloud-posttime">2024 / 11 / 18</time>
+            <span>吃灰灰</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241123171056/">
+            <time class="tagcloud-posttime">2024 / 11 / 23</time>
+            <span>彩色丝印的正确通途(x)</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20240610130000/">
+            <time class="tagcloud-posttime">2024 / 06 / 10</time>
+            <span>ESP32-PICO-D4</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20240621140000/">
+            <time class="tagcloud-posttime">2024 / 06 / 21</time>
+            <span></span>
+          </a>
+        </div>
+      
     </div>
   
     <div class="tagcloud-postlist ">
@@ -827,6 +992,58 @@
           <a href="/en/mspxr/20241121101150/">
             <time class="tagcloud-posttime">2024 / 11 / 21</time>
             <span>Smooth Rounded Anti-Aliasing</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>ESP</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241118082156/">
+            <time class="tagcloud-posttime">2024 / 11 / 18</time>
+            <span>吃灰灰</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20240610130000/">
+            <time class="tagcloud-posttime">2024 / 06 / 10</time>
+            <span>ESP32-PICO-D4</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>LCD</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241119132156/">
+            <time class="tagcloud-posttime">2024 / 11 / 19</time>
+            <span>USBC24P 测线仪</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/en/mspxr/20240721101150/">
+            <time class="tagcloud-posttime">2024 / 07 / 21</time>
+            <span>Micro Sub Pixel Rendering</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/en/mspxr/20241121101150/">
+            <time class="tagcloud-posttime">2024 / 11 / 21</time>
+            <span>Smooth Rounded Anti-Aliasing</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/Moment/20241118082156/">
+            <time class="tagcloud-posttime">2024 / 11 / 18</time>
+            <span>吃灰灰</span>
           </a>
         </div>
       

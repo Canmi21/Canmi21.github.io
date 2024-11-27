@@ -168,6 +168,7 @@
         <tag>ST</tag>
         <tag>USBC</tag>
         <tag>Moment</tag>
+        <tag>LCD</tag>
       </tags>
   </entry>
   <entry>
@@ -207,6 +208,7 @@
       </categories>
       <tags>
         <tag>mspxr</tag>
+        <tag>LCD</tag>
       </tags>
   </entry>
   <entry>
@@ -348,6 +350,60 @@
         <tag>LaTeX</tag>
         <tag>C</tag>
         <tag>mspxr</tag>
+        <tag>LCD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>吃灰灰</title>
+    <url>/zh-cn/Moment/20241118082156/</url>
+    <content><![CDATA[<p><img src="/attachment/20241118/20241117225834.webp"><br><img src="/attachment/20241118/20241117225851.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>ESP</tag>
+        <tag>LCD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>彩色丝印的正确通途(x)</title>
+    <url>/zh-cn/Moment/20241123171056/</url>
+    <content><![CDATA[<p><img src="/attachment/20241123/IMG_20241123_160052.webp"><br><img src="/attachment/20241123/IMG_20241123_160202.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>ST</tag>
+        <tag>Moment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESP32-PICO-D4</title>
+    <url>/zh-cn/Moment/20240610130000/</url>
+    <content><![CDATA[<p><img src="/attachment/20240610/20240610160007.webp"><br><img src="/attachment/20240610/20240610155922.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>ESP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/zh-cn/Moment/20240621140000/</url>
+    <content><![CDATA[<p><img src="/attachment/20240621/Image_1723014139940.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>WCH</tag>
+        <tag>Moment</tag>
       </tags>
   </entry>
 </search>
