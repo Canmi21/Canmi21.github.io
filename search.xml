@@ -139,6 +139,7 @@
       <tags>
         <tag>ST</tag>
         <tag>Moment</tag>
+        <tag>HRS</tag>
       </tags>
   </entry>
   <entry>
@@ -430,6 +431,36 @@
       <tags>
         <tag>Moment</tag>
         <tag>sky</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USB Gigabit Ethernet Adapter</title>
+    <url>/en/20241114000000/</url>
+    <content><![CDATA[<p><img src="/img/20241114/IMG_20241130_210623.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>PY</tag>
+        <tag>Realtek</tag>
+        <tag>TI</tag>
+        <tag>Molex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USB3.0 TF-Card Reader</title>
+    <url>/en/20241115000000/</url>
+    <content><![CDATA[<p><img src="/img/20241115/IMG_20241201_013912.webp"><br><img src="/img/20241115/IMG_20241206_205020.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>luxshare</tag>
+        <tag>TF</tag>
       </tags>
   </entry>
 </search>
