@@ -60,6 +60,7 @@
       <tags>
         <tag>WCH</tag>
         <tag>OpenSource</tag>
+        <tag>HRS</tag>
       </tags>
   </entry>
   <entry>
@@ -75,6 +76,7 @@
       <tags>
         <tag>WCH</tag>
         <tag>Moment</tag>
+        <tag>HRS</tag>
       </tags>
   </entry>
   <entry>
@@ -88,6 +90,8 @@
       <tags>
         <tag>MI</tag>
         <tag>Moment</tag>
+        <tag>TI</tag>
+        <tag>JEA</tag>
       </tags>
   </entry>
   <entry>
@@ -101,6 +105,7 @@
       <tags>
         <tag>WCH</tag>
         <tag>Moment</tag>
+        <tag>HRS</tag>
       </tags>
   </entry>
   <entry>
@@ -126,6 +131,8 @@
       <tags>
         <tag>PW</tag>
         <tag>Moment</tag>
+        <tag>HRS</tag>
+        <tag>GD</tag>
       </tags>
   </entry>
   <entry>
@@ -155,6 +162,8 @@
       <tags>
         <tag>PW</tag>
         <tag>OpenSource</tag>
+        <tag>HRS</tag>
+        <tag>GD</tag>
       </tags>
   </entry>
   <entry>
@@ -170,6 +179,7 @@
         <tag>USBC</tag>
         <tag>Moment</tag>
         <tag>LCD</tag>
+        <tag>JEA</tag>
       </tags>
   </entry>
   <entry>
@@ -184,6 +194,7 @@
         <tag>WCH</tag>
         <tag>Moment</tag>
         <tag>PY</tag>
+        <tag>luxshare</tag>
       </tags>
   </entry>
   <entry>
@@ -379,6 +390,7 @@
       <tags>
         <tag>ST</tag>
         <tag>Moment</tag>
+        <tag>krconn</tag>
       </tags>
   </entry>
   <entry>
@@ -392,6 +404,8 @@
       <tags>
         <tag>Moment</tag>
         <tag>ESP</tag>
+        <tag>Molex</tag>
+        <tag>krconn</tag>
       </tags>
   </entry>
   <entry>
@@ -403,7 +417,6 @@
         <category>Moment</category>
       </categories>
       <tags>
-        <tag>WCH</tag>
         <tag>Moment</tag>
       </tags>
   </entry>
@@ -474,6 +487,65 @@
       <tags>
         <tag>Moment</tag>
         <tag>TI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DC24S1215</title>
+    <url>/en/20241203000000/</url>
+    <content><![CDATA[<p><img src="/img/20241203/IMG_20241206_183445.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>ST</tag>
+        <tag>Moment</tag>
+        <tag>TI</tag>
+        <tag>delta</tag>
+        <tag>isolated</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RF 433Mhz</title>
+    <url>/en/20241130000000/</url>
+    <content><![CDATA[<p><img src="/img/20241130/IMG_20241207_210249.webp"><br><img src="/img/20241130/IMG_20241207_212100.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>RF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PCB RF 433Mhz</title>
+    <url>/en/20241125163057/</url>
+    <content><![CDATA[<p><img src="/img/20241130/IMG_20241207_212110.webp"><br><img src="/img/20241130/rf.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>RF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LiThermal T113-S3</title>
+    <url>/en/20241206000017/</url>
+    <content><![CDATA[<p><img src="/img/20241205/IMG_20241208_102810.webp"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/diylxy/LiThermal.git</span><br></pre></td></tr></table></figure>
+
+<p>Original Author: <a href="https://github.com/diylxy">@lxydiy</a>   </p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>LiThermal</tag>
+        <tag>allwinner</tag>
       </tags>
   </entry>
 </search>
