@@ -535,7 +535,7 @@
     <title>LiThermal T113-S3</title>
     <url>/en/20241206000017/</url>
     <content><![CDATA[<p><img src="/img/20241205/IMG_20241208_102810.webp"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/diylxy/LiThermal.git</span><br></pre></td></tr></table></figure>
+<h3 id="OpenSource"><a href="#OpenSource" class="headerlink" title="OpenSource"></a>OpenSource</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/diylxy/LiThermal.git</span><br></pre></td></tr></table></figure>
 
 <p>Original Author: <a href="https://github.com/diylxy">@lxydiy</a>   </p>
 ]]></content>
