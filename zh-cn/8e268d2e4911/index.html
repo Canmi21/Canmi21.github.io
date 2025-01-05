@@ -18,6 +18,8 @@
 
 
 
+  <meta name="keywords" content="Moment, announcement, nlvi" />
+
 
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.33/darkreader.min.js"></script>
 
@@ -96,12 +98,7 @@
 }
 </style>
 
-  <title>
-    Home
-    
-      | Canmi21
-    
-  </title>
+  <title> CAPTCHA · Home </title>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -269,54 +266,232 @@
         <div class="main-wrapper">
           
     
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="21; url=https://canmi21.github.io">
-    <title>Redirecting...</title>
-    <script>
-        setTimeout(function() {
-            window.open('https://travel.moe/go.html?travel=on', '_blank');
-        }, 3000);
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        .warning {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ffcc00;
-            background-color: #fff3cd;
-            color: #856404;
-            display: inline-block;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <h1>Redirecting...</h1>
-    <p>You are being redirected. Please wait a moment. If you are not redirected automatically, <a target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on">click here</a>.</p>
-    <div class="warning">
-        <strong>Disclaimer:</strong> The destination website <a href="https://travel.moe/" target="_blank">travel.moe</a> is not affiliated with us, and we are not responsible for its content.
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2025-01-06</time>
+          
+            
+              <span class="post-category"><a href="/categories/Moment/">Moment</a></span>
+            
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInRightShort back-2">
+        
+          CAPTCHA
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <p>最近终于没人刷我流量了，今日起考虑关闭人机验证观察。   </p>
+
+      
+    
     </div>
-</body>
-</html>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/Moment/">Moment</a>
+      
+        <a href="/tags/announcement/">announcement</a>
+      
+      </div>
+    
+    
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>Canmi</span>
+    </div>
+    <div class="copy-license">
+      
+      MIT & Apache-2.0 license 2024
+    </div>
+    <div class="copy-url">
+      <a href="javascript:void(0);" class="fake-link" onclick="handleClick(this, 'https://canmi21.github.io/zh-cn/8e268d2e4911/');">
+        https://xyy.canmi.xyz/zh-cn/8e268d2e4911/
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let alreadyCopied = false;
+
+    let clickCount = 0;
+
+    function handleClick(element, text) {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        copyToClipboard(text);
+        element.innerHTML = element.innerHTML + ' √'; 
+        showMessage("已复制,请注意注明出处!", 1, 'green');
+      } else if (clickCount === 2 || clickCount === 3) {
+        showMessage("已经复制了！", 1, 'red');
+      } else if (clickCount < 5){
+        showMessage("已经复制了！", 3, 'red');
+      } else {
+        showMessage("你不准再复制了！", 0, 'red');
+      }
+    }
+
+    function copyToClipboard(text) {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-1000px';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+  </script>
+
+  <style>
+    .fake-link {
+      cursor: pointer; /* 鼠标指针样式 */
+    }
+
+    /* 消息框基础样式 */
+    .message-box {
+      position: fixed;
+      top: 21px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: black;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* 消息框显示动画 */
+    .message-box.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+
+  <script>
+    // 显示消息框
+    function showMessage(content, duration, color) {
+      var messageBox = document.createElement('div');
+      messageBox.classList.add('message-box');
+      messageBox.textContent = content;
+
+      // 设置消息框背景色
+      var colors = {
+        red: 'rgb(253, 153, 153)',
+        yellow: 'rgb(255, 255, 153)',
+        green: 'rgb(153, 253, 153)',
+        blue: 'rgb(153, 153, 253)'
+      };
+
+      messageBox.style.backgroundColor = colors[color] || colors.red; // 默认红色
+
+      document.body.appendChild(messageBox);
+
+      // 动画显示
+      setTimeout(function() {
+        messageBox.classList.add('show');
+      }, 50);
+
+      // 设置显示时间，时间到后隐藏消息
+      if (duration > 0) {
+        setTimeout(function() {
+          messageBox.classList.remove('show');
+          setTimeout(function() {
+            document.body.removeChild(messageBox);
+          }, 300);
+        }, duration * 1000); // 持续时间（秒转毫秒）
+      }
+    }
+  </script>
+
 
     
+  </article>
   
+    
+  <nav class="article-page">
+    
+    
+      <a href="/zh-cn/ee726660476f/" id="art-right" class="art-right">
+        <span class="prev-title">
+          mspxr V1.3<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
+  </nav>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline">
+  <noscript>Waline need JavaScript!</noscript>
+</div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://blog-waline-orcin.vercel.app',
+    path: window.location.pathname,
+    meta: [],
+    requiredMeta: ['nick', 'mail'],
+    lang: 'en',
+    emoji: ['https://unpkg.com/@waline/emojis@1.2.0/qq'],
+    dark: 'html[data-user-color-scheme="dark"]',
+    wordLimit: 0,
+    pageSize: 10,
+    admin: ['Canmi21@gmail.com'],
+    adminLabel: 'Owner',
+  });
+</script>
+
+
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <div class="title"><span>Index</span></div>
+    <div class="toc-inner">
+      
+    </div>
+  </aside>
+
+
+
+  
+
+
         </div>
       </main>
       <footer class="footer syuanpi fadeIn" id="footer">
@@ -1504,6 +1679,20 @@
 <script src="/script/bootstarp.js"></script>
 
 
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
 
 
 
