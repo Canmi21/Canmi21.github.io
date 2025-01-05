@@ -271,7 +271,7 @@
   <div class="archive syuanpi fadeInRightShort" id="archive">
     
       <aside class="archive-title">Total</aside>
-      <span class="archive-num">27 Posts In Total</span>
+      <span class="archive-num">31 Posts In Total</span>
     
       
       
@@ -283,6 +283,123 @@
             <div class="archive-group">
             <time class="archive-year"> 2024 </time>
             <div class="archive-list">
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <p>今天基本搭建完了这个小站，一方面是因为自己之前写的内容都没有被很好的保存，有些时候也会因为一个奇怪的原因被下架，那干脆就自己搭一个网站(x) 在这里记录一下生活和研究还是挺好的，希望后面能抽空写点有意义的内容吧。   </p>
+<p>另外介绍一下吧:<br>本站使用了 Node.js 基于 Hexo 框架和 Nlvi 主题修改，页面渲染使用了 Swig 动画是 JS+CSS 写的，部分依赖于 LightBox，部署在 Github Page 上面，使用了 Cloudflare &amp; CDN 代理)</p>
+<p id="time-elapsed"></p>
+
+<script>
+    const calculateElapsedTime = startDate => 
+    {
+        const start = new Date(startDate);
+        const now = new Date();
+        const diff = now - start;
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        return `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    const updateElement = obj => str => obj.innerHTML = str;
+
+    document.addEventListener("DOMContentLoaded", () => 
+    {
+        const startDate = "2024-07-03T15:03:21";
+        const timeElapsedElement = document.getElementById("time-elapsed");
+        const updateTimeElapsed = updateElement(timeElapsedElement);
+        updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
+        setInterval(() => 
+        {
+            updateTimeElapsed(`网页已运行 ${calculateElapsedTime(startDate)}`);
+        }, 1000);
+    });
+</script>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2024-10-11
+            </time>
+            <a  class="archive-post-link" href="/zh-cn/7b697c9d28b9/">
+              Hello Hexo
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <p><img src="/img/20241008/IMG_20241117_121630.webp"><br><img src="/img/20241008/IMG_20241117_121657.webp"></p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2024-10-08
+            </time>
+            <a  class="archive-post-link" href="/en/9d060f6e2e37/">
+              ST-Link V3 STM32F723
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <p><img src="/img/20240810/20241117111537.webp"><br><img src="/img/20240810/20241117111536.webp"></p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2024-08-10
+            </time>
+            <a  class="archive-post-link" href="/en/a6fb83645e00/">
+              PW-Link GD32F303
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h2 id="mspxr"><a href="#mspxr" class="headerlink" title="mspxr"></a>mspxr</h2><p>Micro Sub Pixel Rendering (mspxr)<br>Copyright (C) 2024 Canmi, all rights reserved.</p>
+<p><img src="/img/20240721/1726929666101.webp"></p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2024-07-21
+            </time>
+            <a  class="archive-post-link" href="/en/7ad4a8ae7b40/">
+              Micro Sub Pixel Rendering
+            </a>
+          </div>
+        </div>
+      
+        
+          
           
           
         <div class="archive-post">
@@ -442,7 +559,7 @@
     <div class="info" style="display: flex; justify-content: space-between; align-items: center;">
         <div>
             <span>&copy;</span>
-            <span>2019 ~ 2024</span>
+            <span>2019 ~ 2025</span>
             <span>❤</span>
             <span>Canmi</span>
         </div>
@@ -715,6 +832,14 @@
       <button>allwinner</button>
     </div>
   
+    <div class="tagcloud-tag">
+      <button>Aurora</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>ADI</button>
+    </div>
+  
   </div>
   
     <div class="tagcloud-postlist active">
@@ -821,6 +946,13 @@
           <a href="/en/265da4e9ee1c/">
             <time class="tagcloud-posttime">2024 / 12 / 03</time>
             <span>DC24S1215</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/3d6b83d9513c/">
+            <time class="tagcloud-posttime">2024 / 12 / 28</time>
+            <span>Aurora</span>
           </a>
         </div>
       
@@ -1014,6 +1146,27 @@
           </a>
         </div>
       
+        <div class="tagcloud-post">
+          <a href="/zh-cn/15e7ca1c0d42/">
+            <time class="tagcloud-posttime">2024 / 12 / 08</time>
+            <span>浅浅测试一下</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/3d6b83d9513c/">
+            <time class="tagcloud-posttime">2024 / 12 / 28</time>
+            <span>Aurora</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/3a554e6bc855/">
+            <time class="tagcloud-posttime">2024 / 12 / 21</time>
+            <span>ADUM3165</span>
+          </a>
+        </div>
+      
     </div>
   
     <div class="tagcloud-postlist ">
@@ -1080,6 +1233,13 @@
           <a href="/en/e4c6e51802f2/">
             <time class="tagcloud-posttime">2024 / 11 / 21</time>
             <span>Smooth Rounded Anti-Aliasing</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/ee726660476f/">
+            <time class="tagcloud-posttime">2024 / 12 / 29</time>
+            <span>mspxr V1.3</span>
           </a>
         </div>
       
@@ -1365,6 +1525,13 @@
           </a>
         </div>
       
+        <div class="tagcloud-post">
+          <a href="/zh-cn/15e7ca1c0d42/">
+            <time class="tagcloud-posttime">2024 / 12 / 08</time>
+            <span>浅浅测试一下</span>
+          </a>
+        </div>
+      
     </div>
   
     <div class="tagcloud-postlist ">
@@ -1417,6 +1584,37 @@
           <a href="/en/9a4647759489/">
             <time class="tagcloud-posttime">2024 / 12 / 06</time>
             <span>LiThermal T113-S3</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Aurora</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/3d6b83d9513c/">
+            <time class="tagcloud-posttime">2024 / 12 / 28</time>
+            <span>Aurora</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/ee726660476f/">
+            <time class="tagcloud-posttime">2024 / 12 / 29</time>
+            <span>mspxr V1.3</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>ADI</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/3a554e6bc855/">
+            <time class="tagcloud-posttime">2024 / 12 / 21</time>
+            <span>ADUM3165</span>
           </a>
         </div>
       
