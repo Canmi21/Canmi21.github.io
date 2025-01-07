@@ -309,7 +309,7 @@
   <div class="archive syuanpi fadeInRightShort" id="archive">
     
       <aside class="archive-title">Total</aside>
-      <span class="archive-num">35 Posts In Total</span>
+      <span class="archive-num">36 Posts In Total</span>
     
       
       
@@ -336,6 +336,36 @@
             </time>
             <a  class="archive-post-link" href="/zh-cn/8e268d2e4911/">
               CAPTCHA
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h3 id="DarkReader-API"><a href="#DarkReader-API" class="headerlink" title="DarkReader API"></a>DarkReader API</h3><p>很早之前用的客户端暗色插件现在支持服务端调用了 <a target="_blank" rel="noopener" href="https://github.com/darkreader/darkreader?tab=readme-ov-file#using-dark-reader-on-a-website">DarkReader API</a>  那么正好写一个设置来支持切换深浅色模式，以及持久化用户设置。<a target="_blank" rel="noopener" href="https://github.com/darkreader/darkreader.git">DarkReader</a> 真的非常方便，理论上默认设置都能很好自动渲染网页生成对应的 CSS，如果有不正常的地方自己微调一下就行。</p>
+<h3 id="Setting-Page"><a href="#Setting-Page" class="headerlink" title="Setting Page"></a>Setting Page</h3><p>首先得有一个开关或者设置，这里我选择自己写了一个 <a href="/setting">Setting</a> 用于存储用户数据，还有保存到 <a href="/">localStorage</a> 之类的的( ) 这里初始化了一个按键的开关，作为被绑定的载体。</p>
+<h4 id="Toggle"><a href="#Toggle" class="headerlink" title="Toggle"></a>Toggle</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;setting-item&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;theme-toggle&quot;</span> <span class="attr">class</span>=<span class="string">&quot;setting-label&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Dark Mode<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;setting-description&quot;</span>&gt;</span>Toggle the dark theme. It will sync with your system theme settings the first time.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;switch&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">id</span>=<span class="string">&quot;theme-toggle&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;slider round&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> cookieStatus = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;allowCookies&#x27;</span>) === <span class="string">&#x27;true&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> themeStatus = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;darkMode&#x27;</span>) === <span class="string">&#x27;true&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;cookie-toggle&#x27;</span>).<span class="property">checked</span> = cookieStatus;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;theme-toggle&#x27;</span>).<span class="property">checked</span> = themeStatus;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Load dark mode settings from localStorage or auto</span></span><br><span class="line">  <span class="keyword">const</span> darkModeStatus = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;darkMode&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span> (darkModeStatus !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (darkModeStatus === <span class="string">&#x27;true&#x27;</span>) &#123;</span><br><span class="line">      <span class="title class_">DarkReader</span>.<span class="title function_">enable</span>(&#123; <span class="attr">brightness</span>: <span class="number">100</span>, <span class="attr">contrast</span>: <span class="number">100</span>, <span class="attr">sepia</span>: <span class="number">0</span> &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="title class_">DarkReader</span>.<span class="title function_">disable</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title class_">DarkReader</span>.<span class="title function_">auto</span>(&#123; <span class="attr">brightness</span>: <span class="number">100</span>, <span class="attr">contrast</span>: <span class="number">90</span>, <span class="attr">sepia</span>: <span class="number">10</span> &#125;);</span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;darkMode&#x27;</span>, <span class="title class_">DarkReader</span>.<span class="title function_">isEnabled</span>().<span class="title function_">toString</span>());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dark mode toggle</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;theme-toggle&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> isDarkMode = <span class="variable language_">this</span>.<span class="property">checked</span>;</span><br><span class="line">  <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;darkMode&#x27;</span>, isDarkMode.<span class="title function_">toString</span>());</span><br><span class="line">  <span class="keyword">if</span> (isDarkMode) &#123;</span><br><span class="line">    <span class="title class_">DarkReader</span>.<span class="title function_">enable</span>(&#123; <span class="attr">brightness</span>: <span class="number">100</span>, <span class="attr">contrast</span>: <span class="number">100</span>, <span class="attr">sepia</span>: <span class="number">0</span> &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title class_">DarkReader</span>.<span class="title function_">disable</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面的 JS 调用的 <a href="/">window.onload</a> 只是为了设置界面可以正常生效，并且持久化和每次自动从 <a href="/">localStorage</a> 加载按键信息所用的，具体的全局设置可以参考这样</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;&#123;&#123; config.language &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  &#123;% include &quot;_partial/head.swig&quot; %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;% block title %&#125;&#123;% endblock %&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> darkModeSetting = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;darkMode&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (darkModeSetting === <span class="string">&#x27;true&#x27;</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">DarkReader</span>.<span class="title function_">enable</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">brightness</span>: <span class="number">100</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">contrast</span>: <span class="number">100</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">sepia</span>: <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125; </span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">else</span> <span class="keyword">if</span> (darkModeSetting === <span class="string">&#x27;false&#x27;</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">DarkReader</span>.<span class="title function_">disable</span>();</span></span><br><span class="line"><span class="language-javascript">      &#125; </span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">DarkReader</span>.<span class="title function_">auto</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">brightness</span>: <span class="number">100</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">contrast</span>: <span class="number">90</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">sepia</span>: <span class="number">10</span></span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> isEnabled = <span class="title class_">DarkReader</span>.<span class="title function_">isEnabled</span>();</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;darkMode&#x27;</span>, isEnabled.<span class="title function_">toString</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;)();</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    &#123;% include &quot;_partial/header.swig&quot; %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container-inner&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main-wrapper&quot;</span>&gt;</span></span><br><span class="line">          &#123;% block main %&#125; &#123;% endblock %&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">      &#123;% include &quot;./_partial/footer.swig&quot; %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% include &quot;./_partial/tagcloud.swig&quot; %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  &#123;% include &quot;_partial/_feature/common.swig&quot; %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我之前踩过坑，那就是在最开始调用这个 JS 会导致加载过早, 导致后面渲染出来的页面完全没有被应用深色模式，如果用 <a href="/">window.onload</a> 会导致深色模式的一瞬间加载的时候实际上是浅色主题，等加载完后才执行的 API, 所以你应该把这段 JS 塞在 _layout.swig 或者你使用的框架的合适地方, 比如整体 Web Body( )</p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2025-01-06
+            </time>
+            <a  class="archive-post-link" href="/zh-cn/fbff9a1879ca/">
+              Support DarkMode
             </a>
           </div>
         </div>
@@ -697,6 +727,22 @@
   
     <div class="tagcloud-tag">
       <button>Nvidia</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>Web</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>JS</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>CSS</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>DarkReader</button>
     </div>
   
   </div>
@@ -1574,6 +1620,54 @@
           <a href="/zh-cn/60313418d79f/">
             <time class="tagcloud-posttime">2025 / 01 / 04</time>
             <span>ArchLinux&Hyprland</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>Web</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/fbff9a1879ca/">
+            <time class="tagcloud-posttime">2025 / 01 / 06</time>
+            <span>Support DarkMode</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>JS</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/fbff9a1879ca/">
+            <time class="tagcloud-posttime">2025 / 01 / 06</time>
+            <span>Support DarkMode</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>CSS</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/fbff9a1879ca/">
+            <time class="tagcloud-posttime">2025 / 01 / 06</time>
+            <span>Support DarkMode</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>DarkReader</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/zh-cn/fbff9a1879ca/">
+            <time class="tagcloud-posttime">2025 / 01 / 06</time>
+            <span>Support DarkMode</span>
           </a>
         </div>
       
