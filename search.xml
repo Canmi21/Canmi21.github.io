@@ -625,8 +625,34 @@
       <categories>
         <category>Moment</category>
       </categories>
+  </entry>
+  <entry>
+    <title>你们 Arch User 都是这样的嘛</title>
+    <url>/zh-cn/7b16d33cfdb5/</url>
+    <content><![CDATA[<p><img src="/img/20241229/IMG_20241229_221013.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
       <tags>
-        <tag>Pin</tag>
+        <tag>Moment</tag>
+        <tag>ArchLinux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArchLinux&amp;Hyprland</title>
+    <url>/zh-cn/60313418d79f/</url>
+    <content><![CDATA[<p><img src="/img/20250104/1736235278117.webp"><br><img src="/img/20250104/1736235350165.webp"></p>
+]]></content>
+      <categories>
+        <category>Moment</category>
+      </categories>
+      <tags>
+        <tag>Moment</tag>
+        <tag>ArchLinux</tag>
+        <tag>Hyprland</tag>
+        <tag>Wayland</tag>
+        <tag>Nvidia</tag>
       </tags>
   </entry>
 </search>
