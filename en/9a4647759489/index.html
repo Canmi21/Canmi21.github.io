@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="en,zh-cn,default">
+<script>
+    window.onload = function() {
+      const darkModeSetting = localStorage.getItem('darkMode');
+  
+      if (darkModeSetting === 'true') {
+        DarkReader.enable({
+          brightness: 100,
+          contrast: 100,
+          sepia: 0
+        });
+      } else if (darkModeSetting === 'false') {
+        DarkReader.disable();
+      } else {
+        DarkReader.auto({
+          brightness: 100,
+          contrast: 90,
+          sepia: 10
+        });
+      }
+
+      const isEnabled = DarkReader.isEnabled();
+
+      localStorage.setItem('darkMode', isEnabled.toString());
+    };
+</script>  
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -22,16 +47,6 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.33/darkreader.min.js"></script>
-
-<script>
-    window.onload = function() {
-      DarkReader.auto({
-        brightness: 100,
-        contrast: 100,
-        sepia: 0
-      });
-    };
-</script>
 
 <link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
 <link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
@@ -184,7 +199,7 @@
     
   
     <li class="menu-item">
-      <a href="/" id="setting">
+      <a href="/setting" id="setting">
         <span class="base-name">
           
             SETTING
@@ -261,7 +276,7 @@
         </li>
       
         <li class="mobile-nav-item syuanpi fadeInRightShort back-4">
-          <a href="/" >
+          <a href="/setting" >
             
               SETTING
             
