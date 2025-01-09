@@ -98,30 +98,39 @@
   <script>
     (function() {
       const darkModeSetting = localStorage.getItem('darkMode');
+      
       if (darkModeSetting === 'true') {
         DarkReader.enable({
           brightness: 100,
           contrast: 100,
           sepia: 0
         });
+        // Set data-user-color-scheme to dark
+        document.documentElement.setAttribute('data-user-color-scheme', 'dark');
       } 
-
+      
       else if (darkModeSetting === 'false') {
         DarkReader.disable();
+        // Set data-user-color-scheme to light
+        document.documentElement.setAttribute('data-user-color-scheme', 'light');
       } 
-
+      
       else {
         DarkReader.auto({
           brightness: 100,
           contrast: 90,
           sepia: 10
         });
+        // Default auto mode, set based on current DarkReader state
+        const isEnabled = DarkReader.isEnabled();
+        document.documentElement.setAttribute('data-user-color-scheme', isEnabled ? 'dark' : 'light');
       }
-
+  
+      // Store the current dark mode setting in localStorage
       const isEnabled = DarkReader.isEnabled();
       localStorage.setItem('darkMode', isEnabled.toString());
     })();
-  </script>
+  </script>  
   <div class="container">
     <header class="header" id="header">
   <div class="header-wrapper">
@@ -499,7 +508,7 @@
     lang: 'en',
     emoji: ['https://unpkg.com/@waline/emojis@1.2.0/qq'],
     dark: 'html[data-user-color-scheme="dark"]',
-    wordLimit: 0,
+    wordLimit: 1000,
     pageSize: 10,
     admin: ['Canmi21@gmail.com'],
     adminLabel: 'Owner',
