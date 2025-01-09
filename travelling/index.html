@@ -174,19 +174,6 @@
     
   
     <li class="menu-item">
-      <a href="/archives" id="archives">
-        <span class="base-name">
-          
-            ARCHIVES
-          
-        </span>
-      </a>
-    </li>
-  
-  
-    
-  
-    <li class="menu-item">
       <a href="javascript:;" id="tags">
         <span class="base-name">
           
@@ -200,10 +187,23 @@
     
   
     <li class="menu-item">
-      <a href="/travel" id="travel">
+      <a href="/archives" id="archives">
         <span class="base-name">
           
-            TRAVEL
+            ARCHIVES
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/travelling" id="travelling">
+        <span class="base-name">
+          
+            TRAVELLING
           
         </span>
       </a>
@@ -266,14 +266,6 @@
         </li>
       
         <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
-          <a href="/archives" >
-            
-              ARCHIVES
-            
-          </a>
-        </li>
-      
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
           <a href="javascript:;" id="mobile-tags">
             
               TAGS
@@ -281,10 +273,18 @@
           </a>
         </li>
       
-        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
-          <a href="/travel" >
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
+          <a href="/archives" >
             
-              TRAVEL
+              ARCHIVES
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
+          <a href="/travelling" >
+            
+              TRAVELLING
             
           </a>
         </li>
@@ -316,18 +316,14 @@
         <div class="main-wrapper">
           
     
-      <!DOCTYPE html>
+      
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="21; url=https://canmi21.github.io">
     <title>Redirecting...</title>
-    <script>
-        setTimeout(function() {
-            window.open('https://travel.moe/go.html?travel=on', '_blank');
-        }, 3000);
-    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -355,12 +351,45 @@
 </head>
 <body>
     <h1>Redirecting...</h1>
-    <p>You are being redirected. Please wait a moment. If you are not redirected automatically, <a target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on">click here</a>.</p>
+    <p>You are being redirected. Please wait a moment. If you are not redirected automatically, <a id="redirect-link" href="#">click here</a>.</p>
     <div class="warning">
-        <strong>Disclaimer:</strong> The destination website <a href="https://travel.moe/" target="_blank">travel.moe</a> is not affiliated with us, and we are not responsible for its content.
+        <strong>Disclaimer:</strong> The destination website <a id="disclaimer-link" href="#" target="_blank">domain</a> is not affiliated with us, and we are not responsible for its content.
     </div>
+    <script>
+        // Wait until the DOM is fully loaded
+        window.onload = function() {
+            // Function to choose random URL group
+            function getRandomGroup() {
+                return Math.random() < 0.5 ? 1 : 2;
+            }
+            // Set random destination URLs
+            var group = getRandomGroup();
+            var redirectUrl;
+            var disclaimerUrl;
+            var domainName;
+            if (group === 1) {
+                redirectUrl = 'https://travel.moe/go.html?travel=on';
+                disclaimerUrl = 'https://travel.moe/';
+                domainName = 'travel.moe';
+            } else {
+                redirectUrl = 'https://www.travellings.cn/go.html';
+                disclaimerUrl = 'https://www.travellings.cn/';
+                domainName = 'travellings.cn';
+            }
+            // Set the timeout for redirect
+            setTimeout(function() {
+                window.open(redirectUrl, '_blank');
+            }, 3000);
+            // Set the link text and URLs based on the selected group
+            document.getElementById("redirect-link").href = redirectUrl;
+            document.getElementById("redirect-link").innerText = "click here";
+            document.getElementById("disclaimer-link").href = disclaimerUrl;
+            document.getElementById("disclaimer-link").innerText = domainName;
+        };
+    </script>
 </body>
 </html>
+
 
     
   
